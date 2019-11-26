@@ -1,9 +1,9 @@
  
 def setup():
     global img, img2
-    img = loadImage("boardGame.jpg")
+    img = loadImage("Images/boardGame.jpg")
     img.resize(600,600)
-    img2 = loadImage("template.jpg")
+    img2 = loadImage("Images/template.jpg")
     img2.resize(750,750)
     
 def draw():
