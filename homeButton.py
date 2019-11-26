@@ -2,7 +2,7 @@
 #opnieuw weergeven
 def setup():
     global logo
-    logo = loadImage("logo.png")
+    logo = loadImage("Images/logo.png")
     logo.resize(65,65)
     
 def draw():

@@ -1,7 +1,7 @@
 #logo op het beginscherm
 def setup():
     global logo
-    logo = loadImage("logo.png")
+    logo = loadImage("Images/logo.png")
     logo.resize(200,200)
     
 def draw():

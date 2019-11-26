@@ -46,7 +46,9 @@ def kopjes():
     #de tekst in de verschillende knoppen
     textSize(21)
     fill(0)
+    text("- Handleiding", 295, 430)
     text("- Bordspel", 295, 480)
+    text("- Gamemodes", 295, 530)
             
     
 def mousePressed():
