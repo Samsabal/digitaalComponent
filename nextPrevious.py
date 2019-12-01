@@ -4,22 +4,16 @@ def setup():
     logo.resize(65,65)
     
 def draw():
-    #haal deze 3 functies weg uit de draw() als je de if-statement gaat gebruiken
-    homeButton()
-    previousButton()
-    homeButton()
-    
-    #if statement om de juiste knoppen te laten zien op de juiste pagina's:
-    # if page == "1":
-    #     nextButton()
-    #     homeButton()
-    # elif page == "x":    #x moet de laatste pagina worden
-    #     previousButton()
-    #     homeButton()
-    # else:
-    #     nextButton()
-    #     previousButton()
-    #     homeButton()
+    if page == 1:
+         nextButton()
+         homeButton()
+    elif page == 20:    
+         previousButton()
+         homeButton()
+    else:
+         nextButton()
+         previousButton()
+         homeButton()
 
 def nextButton():
     noFill()

@@ -10,6 +10,7 @@ def setup():
     bordspel.setup()
     homeButton.setup()
     nextPrevious.setup()
+    handleiding.setup()
     
 def draw():
     global currentScene
@@ -28,11 +29,8 @@ def draw():
         homeButton.draw()
         goBack()
     elif currentScene == "handleiding":
-        template.draw()
-        logo.draw()
-        homeButton.draw()
-        goBack()
-
+        
+        
 
 
     
