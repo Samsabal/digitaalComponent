@@ -1,6 +1,6 @@
-
+#Elke handx moet een nieuwe pagina van de handleiding worden.
 def setup():
-    global page1, page2, page3, page4, page5, page6, page7, page8, page9, page10, page11, page12, page13, page14, page15, page16, page17, page18, page19, page20
+    global page1
     page1 = loadImage("Images/template.jpg")
     page1.resize(750,750)
     
@@ -109,3 +109,6 @@ def hand20():
     global page1
     background(255)
     image(page1, 0, 0)
+    
+def draw():
+    if page 
