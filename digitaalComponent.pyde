@@ -75,6 +75,7 @@ def mousePressed():
             currentScene = "gamemodes"
         elif 656 < mouseX < 731 and 700 < mouseY < 740:
             exit()
+        
             
     if currentScene == "bordspel":
         if 49 < mouseX < 105 and 679 < mouseY < 745:

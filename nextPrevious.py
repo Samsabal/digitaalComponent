@@ -26,6 +26,8 @@ def nextButton():
         fill(255)
         textSize(26)
         text("NEXT", 660, 707)
+    else:
+        return False
         
         
 def previousButton():
@@ -45,6 +47,9 @@ def previousButton():
         fill(255)
         textSize(26)
         text("PREV", 25, 707)
+        
+    else:
+        return False
         
 def homeButton():
     global logo
@@ -71,4 +76,6 @@ def homeButton():
         textSize(20)
         fill(255)
         text("Hoofdscherm:", 200, 705)
+    else: 
+        return False
     
