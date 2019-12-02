@@ -15,7 +15,7 @@ w = 60 # Breedte van de grid cells
 
 def setup():
     global template_image, ziekenhuis_masked, muur_masked, speciaal_masked, tunnel_masked
-    template_image = loadImage("template.jpg")
+    template_image = loadImage("Images/template.jpg")
     template_image.resize(750,750)
     
     ziekenhuis = loadImage("images/ziekenhuis.jpg")

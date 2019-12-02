@@ -1,7 +1,7 @@
 #achtergrond van het beginscherm
 def setup():
     global img
-    img = loadImage("template.jpg")
+    img = loadImage("Images/template.jpg")
     img.resize(750,750)
     
 def draw():

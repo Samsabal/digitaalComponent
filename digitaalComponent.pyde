@@ -1,5 +1,5 @@
 
-import template, logo, buttons, bordspel, homeButton, exitButton
+import template, logo, buttons, bordspel, homeButton, exitButton, nextPrevious
 
 def setup():
     global currentScene
@@ -9,6 +9,7 @@ def setup():
     logo.setup()
     bordspel.setup()
     homeButton.setup()
+    nextPrevious.setup()
     
 def draw():
     global currentScene
@@ -26,6 +27,9 @@ def draw():
         bordspel.draw()
         homeButton.draw()
         goBack()
+
+
+
     
 def hoofdTekst():
     #de tekst op het beginscherm, en de lijn in het midden van het scherm
@@ -46,7 +50,9 @@ def kopjes():
     #de tekst in de verschillende knoppen
     textSize(21)
     fill(0)
+    text("- Handleiding", 295, 430)
     text("- Bordspel", 295, 480)
+    text("- Gamemodes", 295, 530)
             
     
 def mousePressed():
@@ -54,16 +60,23 @@ def mousePressed():
     #en dus veranderd de if in draw() en zo verschijnt een ander scherm
     global currentScene
     if currentScene == "home":
-        if 285 < mouseX < 455 and 452 < mouseY < 492:
+        if 285 < mouseX < 455 and 402 < mouseY < 442:
+            currentScene = "handleiding"
+        elif 285 < mouseX < 455 and 452 < mouseY < 492:
             currentScene = "bordspel"
+        elif 285 < mouseX < 455 and 502 < mouseY < 542:
+            currentScene = "gamemodes"
+        elif 656 < mouseX < 731 and 700 < mouseY < 740:
+            exit()
             
     if currentScene == "bordspel":
         if 49 < mouseX < 105 and 679 < mouseY < 745:
             currentScene = "home"
             
-    if currentScene == "home":
-        if 656 < mouseX < 731 and 700 < mouseY < 740:
-            exit()
+    if currentScene == "handleiding" or currentScene == "gamemodes":
+        if 342 < mouseX < 406 and 667 < mouseY < 735:
+            currentScene = "home"
+                
    
 def goBack():
     #de tekst op het scherm "bordspel"
