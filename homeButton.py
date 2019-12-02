@@ -23,3 +23,5 @@ def draw():
         stroke(255, 220)
         strokeWeight(2.5)
         ellipse(82, 710, 66, 66)
+    else:
+        return False

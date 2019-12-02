@@ -13,10 +13,13 @@ def draw():
     image(template, 0, 0)
     textSize(16)
     text("Page " + str(currentPage), 10, 30)
+    handleiding1()
+    noFill()
+    strokeWeight(5)
     rect(150,10,450,650)
-    handleiding()
-
-def handleiding():
+    strokeWeight(3)
+    
+def handleiding1():
     global currentPage
     if currentPage == 1:
         image(page1, 150, 10)
@@ -24,8 +27,8 @@ def handleiding():
         image(page2, 150, 10)
     else:
         return False
-        
-        
+
+
 def pageUp():
     global currentPage
     currentPage = currentPage + 1
@@ -33,7 +36,6 @@ def pageUp():
 def pageDown():
     global currentPage
     currentPage = currentPage - 1
-
 
 def mousePressed():
     global currentPage
@@ -43,7 +45,6 @@ def mousePressed():
     if currentPage != 1:
         if 19 < mouseX < 94 and 678 < mouseY < 718:
             pageDown()
-        
         
         
     
