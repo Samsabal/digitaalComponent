@@ -52,7 +52,6 @@ def draw():
     noFill()
     strokeWeight(5)
     rect(150,10,450,650)
-    strokeWeight(3)
     
 def handleiding1():
     global currentPage
@@ -94,8 +93,6 @@ def handleiding1():
         image(page18, 150, 10)
     elif currentPage == 19:
         image(page19, 150, 10)
-    
-        
     else:
         return False
 
