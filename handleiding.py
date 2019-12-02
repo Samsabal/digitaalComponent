@@ -3,8 +3,8 @@ def setup():
     global currentPage, template, page1, page2
     currentPage = 1
     template = loadImage("Images/template.jpg")
-    page1 = loadImage("Images/Page1.jpg")
-    page2 = loadImage("Images/Page2.jpg")
+    page1 = loadImage("Images/page1.png")
+    page2 = loadImage("Images/page2.png")
     template.resize(750,750)
     page1.resize(450,650)
     page2.resize(450,650)
@@ -13,6 +13,7 @@ def draw():
     image(template, 0, 0)
     textSize(16)
     text("Page " + str(currentPage), 10, 30)
+    rect(150,10,450,650)
     handleiding()
 
 def handleiding():
