@@ -6,7 +6,6 @@ grid[1][3] = grid[8][6] = -3 # Ziekenhuis
 grid[1][4] = grid[8][5] = grid[7][0] = grid[2][9] = -5 # Speciaal
 grid[4][6] = grid[5][3] = -6 # Tunnel
 
-
 grid_x = 9
 for grid_y in range(10): # Muur
     grid[grid_y][grid_x] = -4
@@ -37,18 +36,18 @@ def setup():
     mask_image.rect(0, 0, w, w)
     mask_image.endDraw()
     
-    # Maak kopieën van masks
-    ziekenhuis_masked = ziekenhuis.copy();
-    ziekenhuis.mask(mask_image);
+    # Maak kopieen van masks
+    ziekenhuis_masked = ziekenhuis.copy()
+    ziekenhuis.mask(mask_image)
     
-    muur_masked = muur.copy();
-    muur.mask(mask_image);
+    muur_masked = muur.copy()
+    muur.mask(mask_image)
     
-    speciaal_masked = speciaal.copy();
-    speciaal.mask(mask_image);
+    speciaal_masked = speciaal.copy()
+    speciaal.mask(mask_image)
     
-    tunnel_masked = tunnel.copy();
-    tunnel.mask(mask_image);
+    tunnel_masked = tunnel.copy()
+    tunnel.mask(mask_image)
     
 def draw():
     #de afbeelding van het spel in het midden van het scherm en de 
