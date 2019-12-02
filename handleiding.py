@@ -1,111 +1,51 @@
 #Elke handx moet een nieuwe pagina van de handleiding worden.
 def setup():
-    global page1
-    page1 = loadImage("Images/template.jpg")
-    page1.resize(750,750)
+    global currentPage, template, page1, page2
+    currentPage = 1
+    template = loadImage("Images/template.jpg")
+    page1 = loadImage("Images/Page1.jpg")
+    page2 = loadImage("Images/Page2.jpg")
+    template.resize(750,750)
+    page1.resize(450,650)
+    page2.resize(450,650)
     
-def hand1():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-    textSize(45)
-    fill(0)
-    text("De Handleiding", 200, 330)
+def draw():
+    image(template, 0, 0)
+    textSize(16)
+    text("Page " + str(currentPage), 10, 30)
+    handleiding()
 
-def hand2():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-    textSize(45)
-    fill(0)
-    text("Pagina 2", 200, 330)
-
-def hand3():
-    global page1
-    background(255)
-    image(page1, 0, 0)
+def handleiding():
+    global currentPage
+    if currentPage == 1:
+        image(page1, 150, 10)
+    elif currentPage == 2:
+        image(page2, 150, 10)
+    else:
+        return False
+        
+        
+def pageUp():
+    global currentPage
+    currentPage = currentPage + 1
     
-def hand4():
-    global page1
-    background(255)
-    image(page1, 0, 0)
+def pageDown():
+    global currentPage
+    currentPage = currentPage - 1
+
+
+def mousePressed():
+    global currentPage
+    if currentPage != 20:
+        if 656 < mouseX < 731 and 678 < mouseY < 718:
+            pageUp()
+    if currentPage != 1:
+        if 19 < mouseX < 94 and 678 < mouseY < 718:
+            pageDown()
+        
+        
+        
     
-def hand5():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-
-def hand6():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-
-def hand7():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-
-def hand8():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-
-def hand9():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-
-def hand10():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-
-def hand11():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-
-def hand12():
-    global page1
-    background(255)
-    image(page1, 0, 0)
     
-def hand13():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-    
-def hand14():
-    global page1
-    background(255)
-    image(page1, 0, 0)
 
-def hand15():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-
-def hand16():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-
-def hand17():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-
-def hand18():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-
-def hand19():
-    global page1
-    background(255)
-    image(page1, 0, 0)
-
-def hand20():
-    global page1
-    background(255)
-    image(page1, 0, 0)
+ 

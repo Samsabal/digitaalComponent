@@ -1,34 +1,13 @@
 #De knoppen die in de handleiding worden gebruikt
 def setup():
-    global logo, page
-    page = 1
+    global logo
     logo = loadImage("Images/logo.png")
     logo.resize(65,65)
-
-def pageUp():
-    global page 
-    page = page + 1
-
-def pageDown():
-    global page
-    page = page - 1
-
-def pageReset():
-    global page
-    page = 1
     
 def draw():
-    global page
-    if page == 1:
-         nextButton()
-         homeButton()
-    elif page == 20:    
-         previousButton()
-         homeButton()
-    else:
-         nextButton()
-         previousButton()
-         homeButton()
+    nextButton()
+    previousButton()
+    homeButton()
 
 def nextButton():
     noFill()

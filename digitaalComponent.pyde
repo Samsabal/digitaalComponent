@@ -29,12 +29,8 @@ def draw():
         homeButton.draw()
         goBack()
     elif currentScene == "handleiding":
-        handleiding.hand1()
+        handleiding.draw()
         nextPrevious.draw()
-    elif currentScene == "hand2":
-        handleiding.hand2()
-        nextPrevious.draw()
-        
 
 
     
@@ -80,21 +76,6 @@ def mousePressed():
         if 49 < mouseX < 105 and 679 < mouseY < 745:
             currentScene = "home"
             
-    if currentScene == "handleiding" or currentScene == "gamemodes" or currentScene == "hand2" or currentScene == "hand3" :
-        if 342 < mouseX < 406 and 667 < mouseY < 735:
-            currentScene = "home"
-            nextPrevious.pageReset()
-    
-    if currentScene == "handleiding":
-            if 656 < mouseX < 731 and 678 < mouseY < 718:
-               currentScene = "hand2"
-    if currentScene == "hand2":
-        if 656 < mouseX < 731 and 678 < mouseY < 718:
-            currentScene = "hand3"
-            nextPrevious.pageUp()
-        elif 19 < mouseX < 94 and 678 < mouseY < 718:
-            currentScene = "handleiding"
-            nextPrevious.pageDown()
             
                 
    
