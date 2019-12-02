@@ -1,5 +1,5 @@
 
-import template, logo, buttons, bordspel, homeButton, exitButton, nextPrevious
+import template, logo, buttons, bordspel, homeButton, exitButton, nextPrevious, gamemodes
 
 def setup():
     global currentScene
@@ -27,6 +27,8 @@ def draw():
         bordspel.draw()
         homeButton.draw()
         goBack()
+    elif currentScene == "gamemodes":
+        gamemodes.draw()
 
 
 

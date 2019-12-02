@@ -68,6 +68,10 @@ def homeButton():
     strokeWeight(2)
     ellipse(375, 700, 64, 64)
     
+    textSize(20)
+    fill(0)
+    text("Hoofdscherm:", 200, 705)
+    
 # making the button light up when the mouse hovers over it
     
     if 342 < mouseX < 406 and 667 < mouseY < 735:
@@ -75,4 +79,8 @@ def homeButton():
         stroke(255, 220)
         strokeWeight(2.5)
         ellipse(375, 700, 66, 66)
+        
+        textSize(20)
+        fill(255)
+        text("Hoofdscherm:", 200, 705)
     
