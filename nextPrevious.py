@@ -1,25 +1,13 @@
+#De knoppen die in de handleiding worden gebruikt
 def setup():
     global logo
     logo = loadImage("Images/logo.png")
     logo.resize(65,65)
     
 def draw():
-    #haal deze 3 functies weg uit de draw() als je de if-statement gaat gebruiken
-    homeButton()
+    nextButton()
     previousButton()
     homeButton()
-    
-    #if statement om de juiste knoppen te laten zien op de juiste pagina's:
-    # if page == "1":
-    #     nextButton()
-    #     homeButton()
-    # elif page == "x":    #x moet de laatste pagina worden
-    #     previousButton()
-    #     homeButton()
-    # else:
-    #     nextButton()
-    #     previousButton()
-    #     homeButton()
 
 def nextButton():
     noFill()

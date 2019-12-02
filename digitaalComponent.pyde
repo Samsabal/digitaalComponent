@@ -1,5 +1,5 @@
 
-import template, logo, buttons, bordspel, homeButton, exitButton, nextPrevious, gamemodes
+import template, logo, buttons, bordspel, homeButton, exitButton, nextPrevious, gamemodes, handleiding
 
 def setup():
     global currentScene
@@ -10,6 +10,7 @@ def setup():
     bordspel.setup()
     homeButton.setup()
     nextPrevious.setup()
+    handleiding.setup()
     
 def draw():
     global currentScene
@@ -29,7 +30,11 @@ def draw():
         goBack()
     elif currentScene == "gamemodes":
         gamemodes.draw()
-
+    elif currentScene == "handleiding":
+        handleiding.draw()
+        nextPrevious.draw()
+    else:
+        return False
 
 
     
@@ -75,9 +80,7 @@ def mousePressed():
         if 49 < mouseX < 105 and 679 < mouseY < 745:
             currentScene = "home"
             
-    if currentScene == "handleiding" or currentScene == "gamemodes":
-        if 342 < mouseX < 406 and 667 < mouseY < 735:
-            currentScene = "home"
+            
                 
    
 def goBack():
