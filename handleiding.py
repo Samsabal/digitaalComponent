@@ -109,6 +109,3 @@ def hand20():
     global page1
     background(255)
     image(page1, 0, 0)
-    
-def draw():
-    if page 
