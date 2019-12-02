@@ -81,6 +81,11 @@ def mousePressed():
             currentScene = "home"
             
             
+    if currentScene == "gamemodes" or currentScene == "handleiding":
+        if 342 < mouseX < 406 and 667 < mouseY < 735:
+            currentScene = "home"
+            
+            
                 
    
 def goBack():
