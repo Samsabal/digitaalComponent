@@ -86,9 +86,14 @@ def mousePressed():
         if 342 < mouseX < 406 and 667 < mouseY < 735:
             currentScene = "home"
             
+    if currentScene == "handleiding":
+        if handleiding.currentPage != 20:
+            if 656 < mouseX < 731 and 678 < mouseY < 718:
+                handleiding.pageUp()
+        if handleiding.currentPage != 1:
+            if 19 < mouseX < 94 and 678 < mouseY < 718:
+                handleiding.pageDown()
             
-                
-   
 def goBack():
     #de tekst op het scherm "bordspel"
     global currentScene    

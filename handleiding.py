@@ -104,18 +104,3 @@ def pageUp():
 def pageDown():
     global currentPage
     currentPage = currentPage - 1
-
-def mousePressed():
-    global currentPage
-    if currentPage != 20:
-        if 656 < mouseX < 731 and 678 < mouseY < 718:
-            pageUp()
-    if currentPage != 1:
-        if 19 < mouseX < 94 and 678 < mouseY < 718:
-            pageDown()
-        
-        
-    
-    
-
- 
