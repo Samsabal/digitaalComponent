@@ -47,10 +47,12 @@ def setup():
 def draw():
     image(template, 0, 0)
     textSize(16)
+    fill(0)
     text("Page " + str(currentPage), 10, 30)
     handleiding1()
     noFill()
     strokeWeight(5)
+    stroke(0)
     rect(150,10,450,650)
     
 def handleiding1():
