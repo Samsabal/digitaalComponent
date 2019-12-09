@@ -1,5 +1,5 @@
 
-import template, logo, buttons, bordspel, homeButton, exitButton, nextPrevious, gamemodes, handleiding
+import template, logo, buttons, bordspel, homeButton, exitButton, nextPrevious, gamemodes, handleiding, rushhour
 
 def setup():
     global currentScene
@@ -11,6 +11,7 @@ def setup():
     homeButton.setup()
     nextPrevious.setup()
     handleiding.setup()
+    rushhour.setup()
     
 def draw():
     global currentScene
@@ -33,6 +34,9 @@ def draw():
     elif currentScene == "handleiding":
         handleiding.draw()
         nextPrevious.draw()
+    elif currentScene == "rushhour":
+        rushhour.draw()
+        homeButton.draw()
     else:
         return False
 
@@ -81,9 +85,14 @@ def mousePressed():
             currentScene = "home"
             
             
-    if currentScene == "gamemodes" or currentScene == "handleiding":
+    if currentScene == "gamemodes" or currentScene == "handleiding" or currentScene == "rushhour":
         if 342 < mouseX < 406 and 667 < mouseY < 735:
             currentScene = "home"
+            
+            
+    if currentScene == "gamemodes":
+        if 285 < mouseX < 455 and 280 < mouseY < 320:
+            currentScene == "rushhour"
             
             
                 
