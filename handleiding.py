@@ -274,7 +274,7 @@ def pageDown():
     currentPage = currentPage - 1
 
 def navHoofdButton():
-    #De button die naar de Snelle Navigatie.
+    #De button die leidt naar de Snelle Navigatie op de eerste pagina van de handleiding.
     noFill()
     stroke(0, 150)
     strokeWeight(5)
@@ -297,7 +297,7 @@ def navHoofdButton():
         return False
 
 def navButton():
-    #De button die naar de Snelle Navigatie.
+    #De button die naar de Snelle Navigatie leidt.
     noFill()
     stroke(0, 150)
     strokeWeight(5)
