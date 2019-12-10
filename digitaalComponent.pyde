@@ -1,5 +1,5 @@
 
-import template, logo, buttons, bordspel, homeButton, exitButton, nextPrevious, gamemodes, handleiding
+import template, logo, buttons, bordspel, homeButton, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding
 
 def setup():
     global currentScene
@@ -16,7 +16,6 @@ def draw():
     global currentScene
     #de currentScene laat zien welk scherm het programma moet weergeven
     #de if-statement verteld het programma wat het moet uitvoeren per scene.
-    
     if currentScene == "home":
         template.draw()
         logo.draw()
@@ -28,6 +27,9 @@ def draw():
         bordspel.draw()
         homeButton.draw()
         goBack()
+    elif currentScene == "bordspelInfo":
+        bordspelInfo.draw(bordspelGrid)
+        goBack()
     elif currentScene == "gamemodes":
         gamemodes.draw()
     elif currentScene == "handleiding":
@@ -35,8 +37,6 @@ def draw():
         nextPrevious.draw()
     else:
         return False
-
-
     
 def hoofdTekst():
     #de tekst op het beginscherm, en de lijn in het midden van het scherm
@@ -65,7 +65,7 @@ def kopjes():
 def mousePressed():
     #als de muis wordt ingedrukt binnen de verschillende knoppen veranderd de scene
     #en dus veranderd de if in draw() en zo verschijnt een ander scherm
-    global currentScene
+    global currentScene, bordspelGrid
     if currentScene == "home":
         if 285 < mouseX < 455 and 402 < mouseY < 442:
             currentScene = "handleiding"
@@ -79,6 +79,22 @@ def mousePressed():
     if currentScene == "bordspel":
         if 49 < mouseX < 105 and 679 < mouseY < 745:
             currentScene = "home"
+        gridX = (mouseX - 75)/bordspel.w
+        gridY = (mouseY - 30)/bordspel.w
+        if gridY < 10 and gridX < 10:
+            if bordspel.grid[gridY][gridX] < 0:
+                bordspelGrid = bordspel.grid[gridY][gridX]
+                currentScene = "bordspelInfo"
+            
+    if currentScene == "handleiding" or currentScene == "gamemodes":
+        if 342 < mouseX < 406 and 667 < mouseY < 735:
+            currentScene = "home"
+    
+    if currentScene == "bordspelInfo":
+        if 600 < mouseX < 648 and 77 < mouseY < 122:
+            print(600 < mouseX < 648 and 77 < mouseY < 122)
+            currentScene = "bordspel"
+            
     if currentScene == "gamemodes" or currentScene == "handleiding":
         if 342 < mouseX < 406 and 667 < mouseY < 735:
             currentScene = "home"
