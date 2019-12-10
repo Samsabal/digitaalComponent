@@ -40,7 +40,6 @@ def draw():
         gamemodes.draw()
     elif currentScene == "handleiding":
         handleiding.draw()
-        nextPrevious.draw()
     elif currentScene == "rushhour":
         rushhour.draw()
         homeButton()
@@ -94,10 +93,6 @@ def mousePressed():
                 bordspelGrid = bordspel.grid[gridY][gridX]
                 currentScene = "bordspelInfo"
             
-    if currentScene == "handleiding" or currentScene == "gamemodes":
-        if 342 < mouseX < 406 and 667 < mouseY < 735:
-            currentScene = "home"
-    
     if currentScene == "bordspelInfo":
         if 600 < mouseX < 648 and 77 < mouseY < 122:
             print(600 < mouseX < 648 and 77 < mouseY < 122)
