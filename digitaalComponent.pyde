@@ -75,24 +75,64 @@ def mousePressed():
             currentScene = "gamemodes"
         elif 656 < mouseX < 731 and 700 < mouseY < 740:
             exit()
-        
             
     if currentScene == "bordspel":
         if 49 < mouseX < 105 and 679 < mouseY < 745:
             currentScene = "home"
-            
-            
     if currentScene == "gamemodes" or currentScene == "handleiding":
         if 342 < mouseX < 406 and 667 < mouseY < 735:
             currentScene = "home"
+            handleiding.pageIs(1) #Zorgt ervoor dat je niet elke keer helemaal terug hoeft te gaan in de handleiding.
             
     if currentScene == "handleiding":
-        if handleiding.currentPage != 20:
+        #De Previous en Next knoppen.
+        if handleiding.currentPage != 19:
             if 656 < mouseX < 731 and 678 < mouseY < 718:
                 handleiding.pageUp()
-        if handleiding.currentPage != 1:
+        if handleiding.currentPage != 0:
             if 19 < mouseX < 94 and 678 < mouseY < 718:
                 handleiding.pageDown()
+                
+        #Snelle Navigatie linker kolom.
+        if handleiding.currentPage == 0:
+            if 35 < mouseX < 235 and 150 < mouseY < 200:
+                handleiding.pageIs(2)
+            if 35 < mouseX < 235 and 235 < mouseY < 285:
+                handleiding.pageIs(3)
+            if 35 < mouseX < 235 and 320 < mouseY < 370:
+                handleiding.pageIs(4)
+            if 35 < mouseX < 235 and 405 < mouseY < 455:
+                handleiding.pageIs(5)
+            if 35 < mouseX < 235 and 490 < mouseY < 540:
+                handleiding.pageIs(6)
+            if 35 < mouseX < 235 and 575 < mouseY < 625:
+                handleiding.pageIs(7)
+            #Snelle Navigatie middelste kolom.
+            if 275 < mouseX < 475 and 150 < mouseY < 200:
+                handleiding.pageIs(8)
+            if 275 < mouseX < 475 and 235 < mouseY < 285:
+                handleiding.pageIs(9)
+            if 275 < mouseX < 475 and 320 < mouseY < 370:
+                handleiding.pageIs(10)
+            if 275 < mouseX < 475 and 405 < mouseY < 455:
+                handleiding.pageIs(11)
+            if 275 < mouseX < 475 and 490 < mouseY < 540:
+                handleiding.pageIs(12)
+            if 275 < mouseX < 475 and 575 < mouseY < 625:
+                handleiding.pageIs(13)
+            #Snelle Navigatie rechter kolom.
+            if 515 < mouseX < 715 and 150 < mouseY < 200:
+                handleiding.pageIs(14)
+            if 515 < mouseX < 715 and 235 < mouseY < 285:
+                handleiding.pageIs(15)
+            if 515 < mouseX < 715 and 320 < mouseY < 370:
+                handleiding.pageIs(16)
+            if 515 < mouseX < 715 and 405 < mouseY < 455:
+                handleiding.pageIs(17)
+            if 515 < mouseX < 715 and 490 < mouseY < 540:
+                handleiding.pageIs(18)
+            if 515 < mouseX < 715 and 575 < mouseY < 625:
+                handleiding.pageIs(19)
             
 def goBack():
     #de tekst op het scherm "bordspel"
