@@ -110,13 +110,16 @@ def mousePressed():
             currentScene = "rushhour"
             
     if currentScene == "handleiding":
-        #De Previous en Next knoppen.
+        #De Previous, Next en Navigatie knoppen.
         if handleiding.currentPage != 19:
             if 656 < mouseX < 731 and 678 < mouseY < 718:
                 handleiding.pageUp()
         if handleiding.currentPage != 0:
             if 19 < mouseX < 94 and 678 < mouseY < 718:
                 handleiding.pageDown()
+        if handleiding.currentPage > 1:
+            if 19 < mouseX < 94 and 618 < mouseY < 658:
+                handleiding.pageIs(0)
                 
         #Snelle Navigatie linker kolom.
         if handleiding.currentPage == 0:

@@ -1,4 +1,5 @@
 #De knoppen die in de handleiding worden gebruikt
+import handleiding
 def setup():
     global logo
     logo = loadImage("Images/logo.png")
@@ -8,6 +9,7 @@ def draw():
     nextButton()
     previousButton()
     homeButton()
+    handleiding.navButton()
 
 def nextButton():
     noFill()

@@ -68,7 +68,7 @@ def handleiding1():
     elif currentPage == 1:
         image(page1, 150, 10)
         nextPrevious.nextButton()
-        navButton()
+        navHoofdButton()
         nextPrevious.homeButton()
     elif currentPage == 2:
         image(page2, 150, 10)
@@ -125,6 +125,7 @@ def handleiding1():
         image(page19, 150, 10)
         nextPrevious.previousButton()
         nextPrevious.homeButton()
+        navButton()
     else:
         return False
 
@@ -272,10 +273,11 @@ def pageDown():
     global currentPage
     currentPage = currentPage - 1
 
-def navButton():
+def navHoofdButton():
     #De button die naar de Snelle Navigatie.
     noFill()
     stroke(0, 150)
+    strokeWeight(5)
     rect(19, 678, 75, 40)
     
     textSize(26)
@@ -293,12 +295,35 @@ def navButton():
         
     else:
         return False
+
+def navButton():
+    #De button die naar de Snelle Navigatie.
+    noFill()
+    stroke(0, 150)
+    strokeWeight(5)
+    rect(19, 618, 75, 40)
+    
+    textSize(26)
+    fill(0)
+    text("NAVI", 25, 647)
+    
+    #Zorgt ervoor dat de knop oplicht.
+    if 19 < mouseX < 94 and 618 < mouseY < 658:
+        noFill()
+        stroke(255, 220)
+        rect(19, 618, 75, 40)
+        fill(255)
+        textSize(26)
+        text("NAVI", 25, 647)
         
+    else:
+        return False    
     
 def backButton():
     #De back button in de Snelle Navigatie.
     noFill()
     stroke(0, 150)
+    strokeWeight(5)
     rect(656, 678, 75, 40)
     
     textSize(26)
