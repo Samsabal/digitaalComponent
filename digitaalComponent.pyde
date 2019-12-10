@@ -1,14 +1,16 @@
 
-import template, logo, buttons, bordspel, homeButton, exitButton, nextPrevious, gamemodes, handleiding, rushhour
+import template, logo, buttons, bordspel, titleButton, exitButton, nextPrevious, gamemodes, handleiding, rushhour
+from nextPrevious import homeButton
 
 def setup():
+    #wordt 1 keer uitgevoerd. roept alle modules die een setup hebben en voert deze uit aan het begin van het programma.
     global currentScene
     size(750,750)
     currentScene = "home"
     template.setup()
     logo.setup()
     bordspel.setup()
-    homeButton.setup()
+    titleButton.setup()
     nextPrevious.setup()
     handleiding.setup()
     rushhour.setup()
@@ -16,7 +18,7 @@ def setup():
 def draw():
     global currentScene
     #de currentScene laat zien welk scherm het programma moet weergeven
-    #de if-statement verteld het programma wat het moet uitvoeren per scene.
+    #de if-statement verteld het programma wat het moet uitvoeren per scene door per scene de betreffende draw() aan te roepen.
     
     if currentScene == "home":
         template.draw()
@@ -27,7 +29,7 @@ def draw():
         kopjes()
     elif currentScene == "bordspel":
         bordspel.draw()
-        homeButton.draw()
+        titleButton.draw()
         goBack()
     elif currentScene == "gamemodes":
         gamemodes.draw()
@@ -36,35 +38,9 @@ def draw():
         nextPrevious.draw()
     elif currentScene == "rushhour":
         rushhour.draw()
-        homeButton.draw()
+        homeButton()
     else:
-        return False
-
-
-    
-def hoofdTekst():
-    #de tekst op het beginscherm, en de lijn in het midden van het scherm
-    textSize(45)
-    fill(0)
-    text("Battle van Berlijn", 200, 330)
-    
-    stroke(0)
-    strokeWeight(3)
-    line(0, 350, 750, 350)
-    
-    textSize(22)
-    fill(0)
-
-    text("Klik op een onderdeel om verder te gaan", 160, 385)
-    
-def kopjes():
-    #de tekst in de verschillende knoppen
-    textSize(21)
-    fill(0)
-    text("- Handleiding", 295, 430)
-    text("- Bordspel", 295, 480)
-    text("- Gamemodes", 295, 530)
-            
+        return False        
     
 def mousePressed():
     #als de muis wordt ingedrukt binnen de verschillende knoppen veranderd de scene
@@ -92,7 +68,8 @@ def mousePressed():
             
     if currentScene == "gamemodes":
         if 285 < mouseX < 455 and 280 < mouseY < 320:
-            currentScene == "rushhour"
+            print(285 < mouseX < 455 and 280 < mouseY < 320)
+            currentScene = "rushhour"
             
             
                 
@@ -104,3 +81,26 @@ def goBack():
         textSize(21)
         fill(0)
         text("Klik op het logo om terug te gaan naar het hoofdscherm", 130, 717)
+        
+def hoofdTekst():
+    #de tekst op het beginscherm, en de lijn in het midden van het scherm
+    textSize(45)
+    fill(0)
+    text("Battle van Berlijn", 200, 330)
+    
+    stroke(0)
+    strokeWeight(3)
+    line(0, 350, 750, 350)
+    
+    textSize(22)
+    fill(0)
+
+    text("Klik op een onderdeel om verder te gaan", 160, 385)
+    
+def kopjes():
+    #de tekst in de verschillende knoppen
+    textSize(21)
+    fill(0)
+    text("- Handleiding", 295, 430)
+    text("- Bordspel", 295, 480)
+    text("- Gamemodes", 295, 530)
