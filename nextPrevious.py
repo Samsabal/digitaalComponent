@@ -1,25 +1,13 @@
+#De knoppen die in de handleiding worden gebruikt
 def setup():
     global logo
     logo = loadImage("Images/logo.png")
     logo.resize(65,65)
     
 def draw():
-    #haal deze 3 functies weg uit de draw() als je de if-statement gaat gebruiken
-    homeButton()
+    nextButton()
     previousButton()
     homeButton()
-    
-    #if statement om de juiste knoppen te laten zien op de juiste pagina's:
-    # if page == "1":
-    #     nextButton()
-    #     homeButton()
-    # elif page == "x":    #x moet de laatste pagina worden
-    #     previousButton()
-    #     homeButton()
-    # else:
-    #     nextButton()
-    #     previousButton()
-    #     homeButton()
 
 def nextButton():
     noFill()
@@ -38,6 +26,8 @@ def nextButton():
         fill(255)
         textSize(26)
         text("NEXT", 660, 707)
+    else:
+        return False
         
         
 def previousButton():
@@ -58,6 +48,9 @@ def previousButton():
         textSize(26)
         text("PREV", 25, 707)
         
+    else:
+        return False
+        
 def homeButton():
     global logo
     image(logo, 343, 668)
@@ -68,11 +61,22 @@ def homeButton():
     strokeWeight(2)
     ellipse(375, 700, 64, 64)
     
+    textSize(20)
+    fill(0)
+    text("Hoofdscherm:", 200, 705)
+    
 # making the button light up when the mouse hovers over it
     
     if 342 < mouseX < 406 and 667 < mouseY < 735:
         noFill()
-        stroke(255, 220)
         strokeWeight(2.5)
+        stroke(255, 220)
         ellipse(375, 700, 66, 66)
+        
+        textSize(20)
+        fill(255)
+        text("Hoofdscherm:", 200, 705)
+    else: 
+        return False
+
     

@@ -15,6 +15,7 @@ def draw():
     strokeWeight(2)
     ellipse(82, 710, 64, 64)
     
+    
 # making the button light up when the mouse hovers over it
     
     if 49 < mouseX < 115 and 679 < mouseY < 745:
@@ -22,3 +23,5 @@ def draw():
         stroke(255, 220)
         strokeWeight(2.5)
         ellipse(82, 710, 66, 66)
+    else:
+        return False
