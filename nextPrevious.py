@@ -1,4 +1,5 @@
 #De knoppen die in de handleiding worden gebruikt
+import handleiding
 def setup():
     global logo
     logo = loadImage("Images/logo.png")
@@ -8,6 +9,7 @@ def draw():
     nextButton()
     previousButton()
     homeButton()
+    handleiding.navButton()
 
 def nextButton():
     noFill()
@@ -69,8 +71,8 @@ def homeButton():
     
     if 342 < mouseX < 406 and 667 < mouseY < 735:
         noFill()
-        stroke(255, 220)
         strokeWeight(2.5)
+        stroke(255, 220)
         ellipse(375, 700, 66, 66)
         
         textSize(20)
@@ -78,4 +80,5 @@ def homeButton():
         text("Hoofdscherm:", 200, 705)
     else: 
         return False
+
     
