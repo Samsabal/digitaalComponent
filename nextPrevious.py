@@ -26,6 +26,8 @@ def nextButton():
         fill(255)
         textSize(26)
         text("NEXT", 660, 707)
+    else:
+        return False
         
         
 def previousButton():
@@ -46,6 +48,9 @@ def previousButton():
         textSize(26)
         text("PREV", 25, 707)
         
+    else:
+        return False
+        
 def homeButton():
     global logo
     image(logo, 343, 668)
@@ -64,11 +69,14 @@ def homeButton():
     
     if 342 < mouseX < 406 and 667 < mouseY < 735:
         noFill()
-        stroke(255, 220)
         strokeWeight(2.5)
+        stroke(255, 220)
         ellipse(375, 700, 66, 66)
         
         textSize(20)
         fill(255)
         text("Hoofdscherm:", 200, 705)
+    else: 
+        return False
+
     
