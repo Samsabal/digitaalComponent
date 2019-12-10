@@ -1,4 +1,5 @@
 #De handleiding en bijbehorende Snelle Navigatie.
+import nextPrevious
 def setup():
     global currentPage, template, page1, page2, page3, page4, page5, page6, page7, page8, page9, page10, page11, page12, page13, page14, page15, page16, page17, page18, page19
     currentPage = 1
@@ -62,44 +63,68 @@ def handleiding1():
     global currentPage
     if currentPage == 0:
         snelNav()
+        backButton()
+        nextPrevious.homeButton()
     elif currentPage == 1:
         image(page1, 150, 10)
+        nextPrevious.nextButton()
+        navButton()
+        nextPrevious.homeButton()
     elif currentPage == 2:
         image(page2, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 3:
         image(page3, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 4:
         image(page4, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 5:
         image(page5, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 6:
         image(page6, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 7:
         image(page7, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 8:
         image(page8, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 9:
         image(page9, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 10:
         image(page10, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 11:
         image(page11, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 12:
         image(page12, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 13:
         image(page13, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 14:
         image(page14, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 15:
         image(page15, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 16:
         image(page16, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 17:
         image(page17, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 18:
         image(page18, 150, 10)
+        nextPrevious.draw()
     elif currentPage == 19:
         image(page19, 150, 10)
+        nextPrevious.previousButton()
+        nextPrevious.homeButton()
     else:
         return False
 
@@ -246,3 +271,47 @@ def pageDown():
     #Zorgt ervoor dat de Previous knop werkt.
     global currentPage
     currentPage = currentPage - 1
+
+def navButton():
+    #De button die naar de Snelle Navigatie.
+    noFill()
+    stroke(0, 150)
+    rect(19, 678, 75, 40)
+    
+    textSize(26)
+    fill(0)
+    text("NAVI", 25, 707)
+    
+    #Zorgt ervoor dat de knop oplicht.
+    if 19 < mouseX < 94 and 678 < mouseY < 718:
+        noFill()
+        stroke(255, 220)
+        rect(19, 678, 75, 40)
+        fill(255)
+        textSize(26)
+        text("NAVI", 25, 707)
+        
+    else:
+        return False
+        
+    
+def backButton():
+    #De back button in de Snelle Navigatie.
+    noFill()
+    stroke(0, 150)
+    rect(656, 678, 75, 40)
+    
+    textSize(26)
+    fill(0)
+    text("BACK", 660, 707)
+    
+    #Zorgt ervoor dat de knop oplicht.
+    if 656 < mouseX < 731 and 678 < mouseY < 718:
+        noFill()
+        stroke(255, 220)
+        rect(656, 678, 75, 40)
+        fill(255)
+        textSize(26)
+        text("BACK", 660, 707)
+    else:
+        return False

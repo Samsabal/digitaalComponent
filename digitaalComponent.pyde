@@ -34,7 +34,6 @@ def draw():
         gamemodes.draw()
     elif currentScene == "handleiding":
         handleiding.draw()
-        nextPrevious.draw()
     else:
         return False
     
