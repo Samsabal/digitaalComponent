@@ -14,11 +14,20 @@ for grid_y in range(10): # Muur
 w = 60 # Breedte van de grid cells
 
 def setup():
-    global template_image, ziekenhuis_masked, muur_masked, speciaal_masked, tunnel_masked
+    global template_image, ziekenhuis_masked, muur_masked, speciaal_masked, tunnel_masked, leeg_masked, westBerlijn_masked, oostBerlijn_masked
+    leeg = loadImage("Images/leeg.jpg")
+    leeg.resize(w,w)
+    
+    westBerlijn = loadImage("Images/west-berlijn.jpg")
+    westBerlijn.resize(w,w)
+    
+    oostBerlijn = loadImage("Images/oost-berlijn.jpg")
+    oostBerlijn.resize(w,w)
+    
     template_image = loadImage("Images/template.jpg")
     template_image.resize(750,750)
     
-    ziekenhuis = loadImage("images/ziekenhuis.jpg")
+    ziekenhuis = loadImage("images/ziekenhuis.jpg") 
     ziekenhuis.resize(w,w)
     
     muur = loadImage("images/muur.jpg")
@@ -49,6 +58,18 @@ def setup():
     tunnel_masked = tunnel.copy()
     tunnel.mask(mask_image)
     
+    leeg_masked = leeg.copy()
+    leeg.mask(mask_image)
+    
+    westBerlijn_masked = westBerlijn.copy()
+    westBerlijn.mask(mask_image)
+    
+    oostBerlijn_masked = oostBerlijn.copy()
+    oostBerlijn.mask(mask_image)
+    
+    leeg_masked = leeg.copy()
+    leeg.mask(mask_image)
+    
 def draw():
     #de afbeelding van het spel in het midden van het scherm en de 
     #achtergrond over heel het scherm
@@ -66,11 +87,9 @@ def draw():
     for row in grid:
         for col in row:
             if col == -1: # West-Berlijn
-                fill(0, 0, 255)
-                rect(x,y,w,w)
+                image(westBerlijn_masked, x, y)
             elif col == -2: # Oost-Berlijn
-                fill(255, 0, 0)
-                rect(x,y,w,w)
+                image(oostBerlijn_masked, x, y)
             elif col == -3: # Ziekenhuis
                 image(ziekenhuis_masked, x, y)
             elif col == -4: # Muur
@@ -80,8 +99,8 @@ def draw():
             elif col == -6: # Tunnel
                 image(tunnel_masked, x, y)
             else: # Leeg
-                fill(255)
-                rect(x,y,w,w)
+                image(leeg_masked, x, y)
+
             x = x + w
         y = y + w
         x = 75
