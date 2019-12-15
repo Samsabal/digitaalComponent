@@ -3,6 +3,7 @@ def draw():
     button1()
     button2()
     button3()
+    button4()
 
         
 def button1():
@@ -23,6 +24,12 @@ def button3():
     rect(285,502,170,40)
     mouseHover()
     
+def button4():
+    noFill()
+    stroke(0,150)
+    rect(285,552,170,40)
+    mouseHover()
+    
 def mouseHover():
     if 285 < mouseX < 455 and 402 < mouseY < 442:
          noFill()
@@ -36,5 +43,9 @@ def mouseHover():
          noFill()
          stroke(255,220)
          rect(285,502,170,40)
+    elif 285 < mouseX < 455 and 552 < mouseY < 592:
+         noFill()
+         stroke(255,220)
+         rect(285,552,170,40)
     else:
         return False

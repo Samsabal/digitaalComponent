@@ -68,6 +68,7 @@ def kopjes():
     text("- Handleiding", 295, 430)
     text("- Bordspel", 295, 480)
     text("- Gamemodes", 295, 530)
+    text("- Tutorial", 295, 580)
     
 def mousePressed():
     #als de muis wordt ingedrukt binnen de verschillende knoppen veranderd de scene
@@ -185,10 +186,3 @@ def hoofdTekst():
 
     text("Klik op een onderdeel om verder te gaan", 160, 385)
     
-def kopjes():
-    #de tekst in de verschillende knoppen
-    textSize(21)
-    fill(0)
-    text("- Handleiding", 295, 430)
-    text("- Bordspel", 295, 480)
-    text("- Gamemodes", 295, 530)
