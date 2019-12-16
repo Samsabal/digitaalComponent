@@ -35,7 +35,10 @@ def draw():
         titleButton.draw()
         goBack()
     elif currentScene == "bordspelInfo":
+        bordspel.draw()
+        backgroundTint()
         bordspelInfo.draw(bordspelGrid)
+        titleButton.draw()
         goBack()
     elif currentScene == "gamemodes":
         gamemodes.draw()
@@ -101,8 +104,9 @@ def mousePressed():
                 currentScene = "bordspelInfo"
             
     if currentScene == "bordspelInfo":
+        if 49 < mouseX < 105 and 679 < mouseY < 745:
+            currentScene = "home"
         if 600 < mouseX < 648 and 77 < mouseY < 122:
-            print(600 < mouseX < 648 and 77 < mouseY < 122)
             currentScene = "bordspel"
             
     if currentScene == "gamemodes" or currentScene == "handleiding" or currentScene == "rushhour" or currentScene == "tutorial":
@@ -182,7 +186,7 @@ def mousePressed():
 def goBack():
     #de tekst op het scherm "bordspel"
     global currentScene    
-    if currentScene == "bordspel":
+    if currentScene == "bordspel" or "bordspelInfo":
         textSize(21)
         fill(0)
         text("Klik op het logo om terug te gaan naar het hoofdscherm", 130, 717)
@@ -202,3 +206,15 @@ def hoofdTekst():
 
     text("Klik op een onderdeel om verder te gaan", 160, 385)
     
+def kopjes():
+    #de tekst in de verschillende knoppen
+    textSize(21)
+    fill(0)
+    text("- Handleiding", 295, 430)
+    text("- Bordspel", 295, 480)
+    text("- Gamemodes", 295, 530)
+
+def backgroundTint():
+    fill(0,0,0,128)
+    rect(0, 0, 750, 750)
+

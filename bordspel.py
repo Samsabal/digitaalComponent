@@ -27,16 +27,16 @@ def setup():
     template_image = loadImage("Images/template.jpg")
     template_image.resize(750,750)
     
-    ziekenhuis = loadImage("images/ziekenhuis.jpg") 
+    ziekenhuis = loadImage("Images/ziekenhuis.jpg") 
     ziekenhuis.resize(w,w)
     
-    muur = loadImage("images/muur.jpg")
+    muur = loadImage("Images/muur.jpg")
     muur.resize(w,w)
     
-    speciaal = loadImage("images/speciaal.jpg")
+    speciaal = loadImage("Images/speciaal.jpg")
     speciaal.resize(w,w)
     
-    tunnel = loadImage("images/tunnel.jpg")
+    tunnel = loadImage("Images/tunnel.jpg")
     tunnel.resize(w,w)
     
     # Maak mask
@@ -76,9 +76,18 @@ def draw():
     background(255)
     tint(255, 230)
     image(template_image, 0, 0)
-
+    
+    noFill()
+    stroke(0)
+    strokeWeight(3)
+    rect(1, 673, 747, 75)
+    tint(255, 255)
+    
     x,y = 75,30 # Waar de grid begint op de X en Y as
 
+    
+    fill(0)
+    rect(x, y, 599, 599)
     
     for row in grid:
         for col in row:
@@ -100,3 +109,4 @@ def draw():
             x = x + w
         y = y + w
         x = 75
+        
