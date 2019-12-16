@@ -84,6 +84,7 @@ def draw():
     tint(255, 255)
     
     x,y = 75,30 # Waar de grid begint op de X en Y as
+
     
     fill(0)
     rect(x, y, 599, 599)
