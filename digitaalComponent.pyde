@@ -1,5 +1,5 @@
 
-import template, logo, buttons, bordspel, titleButton, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour
+import template, logo, buttons, bordspel, titleButton, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, tutorial
 from nextPrevious import homeButton
 
 
@@ -15,6 +15,7 @@ def setup():
     nextPrevious.setup()
     handleiding.setup()
     rushhour.setup()
+    tutorial.setup()
     
 def draw():
     global currentScene
@@ -43,6 +44,9 @@ def draw():
     elif currentScene == "rushhour":
         rushhour.draw()
         homeButton()
+    elif currentScene == "tutorial":
+        template.draw()
+        tutorial.draw()
     else:
         return False        
     
@@ -81,6 +85,8 @@ def mousePressed():
             currentScene = "bordspel"
         elif 285 < mouseX < 455 and 502 < mouseY < 542:
             currentScene = "gamemodes"
+        elif 285 < mouseX < 455 and 552 < mouseY < 592:
+            currentScene = "tutorial"
         elif 656 < mouseX < 731 and 700 < mouseY < 740:
             exit()
             
@@ -99,10 +105,11 @@ def mousePressed():
             print(600 < mouseX < 648 and 77 < mouseY < 122)
             currentScene = "bordspel"
             
-    if currentScene == "gamemodes" or currentScene == "handleiding" or currentScene == "rushhour":
+    if currentScene == "gamemodes" or currentScene == "handleiding" or currentScene == "rushhour" or currentScene == "tutorial":
         if 342 < mouseX < 406 and 667 < mouseY < 735:
             currentScene = "home"
             handleiding.pageIs(1) #Zorgt ervoor dat je niet elke keer helemaal terug hoeft te gaan in de handleiding.
+            tutorial.pageIs(1)
             
             
     if currentScene == "gamemodes":
@@ -162,7 +169,16 @@ def mousePressed():
                 handleiding.pageIs(18)
             if 515 < mouseX < 715 and 575 < mouseY < 625:
                 handleiding.pageIs(19)
-            
+                
+    if currentScene == "tutorial":
+        #De Previous, Next en Navigatie knoppen.
+        if tutorial.tutoPage != 19:
+            if 656 < mouseX < 731 and 678 < mouseY < 718:
+                tutorial.pageUp()
+        if tutorial.tutoPage != 1:
+            if 19 < mouseX < 94 and 678 < mouseY < 718:
+                tutorial.pageDown()
+
 def goBack():
     #de tekst op het scherm "bordspel"
     global currentScene    
