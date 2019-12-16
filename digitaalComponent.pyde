@@ -100,7 +100,6 @@ def mousePressed():
         if 49 < mouseX < 105 and 679 < mouseY < 745:
             currentScene = "home"
         if 600 < mouseX < 648 and 77 < mouseY < 122:
-            print(600 < mouseX < 648 and 77 < mouseY < 122)
             currentScene = "bordspel"
             
     if currentScene == "gamemodes" or currentScene == "handleiding" or currentScene == "rushhour":
@@ -201,3 +200,4 @@ def kopjes():
 def backgroundTint():
     fill(0,0,0,128)
     rect(0, 0, 750, 750)
+ 
