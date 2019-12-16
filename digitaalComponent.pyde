@@ -213,8 +213,8 @@ def kopjes():
     text("- Handleiding", 295, 430)
     text("- Bordspel", 295, 480)
     text("- Gamemodes", 295, 530)
+    text("- Tutorial", 295, 580)
 
 def backgroundTint():
     fill(0,0,0,128)
     rect(0, 0, 750, 750)
-
