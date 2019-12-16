@@ -76,13 +76,9 @@ def draw():
     background(255)
     tint(255, 230)
     image(template_image, 0, 0)
-    
-    noFill()
-    stroke(0)
-    strokeWeight(3)
-    rect(1, 673, 747, 75)
-    
+
     x,y = 75,30 # Waar de grid begint op de X en Y as
+
     
     for row in grid:
         for col in row:
