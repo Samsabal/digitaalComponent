@@ -77,7 +77,6 @@ def draw():
     noFill()
     stroke(0)
     strokeWeight(3)
-    rect(1, 673, 747, 75)
     tint(255, 255)
     
     x,y = 75,30 # Waar de grid begint op de X en Y as

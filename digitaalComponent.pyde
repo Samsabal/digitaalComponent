@@ -1,5 +1,5 @@
 
-import template, logo, buttons, bordspel, titleButton, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour
+import template, logo, buttons, bordspel, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour
 from nextPrevious import homeButton
 
 
@@ -11,7 +11,6 @@ def setup():
     template.setup()
     logo.setup()
     bordspel.setup()
-    titleButton.setup()
     nextPrevious.setup()
     handleiding.setup()
     rushhour.setup()
@@ -31,14 +30,12 @@ def draw():
         kopjes()
     elif currentScene == "bordspel":
         bordspel.draw()
-        titleButton.draw()
-        goBack()
+        homeButton()
     elif currentScene == "bordspelInfo":
         bordspel.draw()
         backgroundTint()
         bordspelInfo.draw(bordspelGrid)
-        titleButton.draw()
-        goBack()
+        homeButton()
     elif currentScene == "gamemodes":
         gamemodes.draw()
     elif currentScene == "handleiding":
@@ -87,8 +84,6 @@ def mousePressed():
             exit()
             
     if currentScene == "bordspel":
-        if 49 < mouseX < 105 and 679 < mouseY < 745:
-            currentScene = "home"
         gridX = (mouseX - 75)/bordspel.w
         gridY = (mouseY - 30)/bordspel.w
         if gridY < 10 and gridX < 10:
@@ -97,12 +92,10 @@ def mousePressed():
                 currentScene = "bordspelInfo"
             
     if currentScene == "bordspelInfo":
-        if 49 < mouseX < 105 and 679 < mouseY < 745:
-            currentScene = "home"
         if 600 < mouseX < 648 and 77 < mouseY < 122:
             currentScene = "bordspel"
             
-    if currentScene == "gamemodes" or currentScene == "handleiding" or currentScene == "rushhour":
+    if currentScene != "home":
         if 342 < mouseX < 406 and 667 < mouseY < 735:
             currentScene = "home"
             handleiding.pageIs(1) #Zorgt ervoor dat je niet elke keer helemaal terug hoeft te gaan in de handleiding.
@@ -165,15 +158,7 @@ def mousePressed():
                 handleiding.pageIs(18)
             if 515 < mouseX < 715 and 575 < mouseY < 625:
                 handleiding.pageIs(19)
-            
-def goBack():
-    #de tekst op het scherm "bordspel"
-    global currentScene    
-    if currentScene == "bordspel" or "bordspelInfo":
-        textSize(21)
-        fill(0)
-        text("Klik op het logo om terug te gaan naar het hoofdscherm", 130, 717)
-        
+
 def hoofdTekst():
     #de tekst op het beginscherm, en de lijn in het midden van het scherm
     textSize(45)
