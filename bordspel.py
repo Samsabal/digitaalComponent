@@ -70,6 +70,12 @@ def setup():
     leeg_masked = leeg.copy()
     leeg.mask(mask_image)
     
+def rec():
+    noFill()
+    stroke(0)
+    strokeWeight(3)
+    rect(1, 673, 747, 75)
+    
 def draw():
     #de afbeelding van het spel in het midden van het scherm en de 
     #achtergrond over heel het scherm
@@ -77,10 +83,6 @@ def draw():
     tint(255, 230)
     image(template_image, 0, 0)
     
-    noFill()
-    stroke(0)
-    strokeWeight(3)
-    rect(1, 673, 747, 75)
     tint(255, 255)
     
     x,y = 75,30 # Waar de grid begint op de X en Y as

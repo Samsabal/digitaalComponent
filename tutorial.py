@@ -17,6 +17,8 @@ def tut1():
     global tutoPage
 
     if tutoPage == 1:
+        bordspel.draw()
+        nextPrevious.backgroundTint()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
         fill(255)
@@ -31,11 +33,13 @@ def tut1():
   is aan jou om de intel van de tegenstander te stelen 
   en zo de oorlog te winnen.""", 100, 100)
     elif tutoPage == 2:
+        bordspel.draw()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
-        image(kaart, 70, 30)
     elif tutoPage == 3:
+        bordspel.draw()
+        nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
@@ -53,6 +57,8 @@ def tut1():
   die van 1 tot 3 gaat. Je kan alleen horizontaal 
   en verticaal bewegen.""", 100, 100)
     elif tutoPage == 4:
+        bordspel.draw()
+        nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
@@ -72,11 +78,15 @@ def tut1():
   tegenstanders spion is dan dood en moet in de 
   graveyard worden geplaatst.""", 100, 100)
     elif tutoPage == 5:
+        bordspel.draw()
+        nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
         image(ziekenhuis, 170, 130)
     elif tutoPage == 6:
+        bordspel.draw()
+        nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
@@ -94,6 +104,8 @@ def tut1():
   Wanneer een gewonde spion nog een keer gewond 
   raakt is deze dood. """, 100, 100)
     elif tutoPage == 7:
+        bordspel.draw()
+        nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
@@ -112,11 +124,15 @@ def tut1():
   wordt gestaan en dient dus meer als een blokkade. 
   De val dood spionnen wel.""", 100, 100)
     elif tutoPage == 8:
+        bordspel.draw()
+        nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
         image(speciaal, 170, 130)
     elif tutoPage == 9:
+        bordspel.draw()
+        nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
@@ -130,11 +146,15 @@ def tut1():
   sterker zijn dan gewone kaarten en deze kan je 
   alleen op het aangewezen vak halen.""", 100, 100)
     elif tutoPage == 10:
+        bordspel.draw()
+        nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
         image(muur, 170, 130)
     elif tutoPage == 11:
+        bordspel.draw()
+        nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
@@ -153,6 +173,8 @@ def tut1():
   2. Door de tunnel gaan. Als je de tunnel ingaat ga 
      je naar de andere kan en is je beurt voorbij.""", 100, 100)
     elif tutoPage == 12:
+        bordspel.draw()
+        nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.homeButton()
         fill(255)

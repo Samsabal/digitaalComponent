@@ -33,10 +33,11 @@ def draw():
     elif currentScene == "bordspel":
         bordspel.draw()
         titleButton.draw()
+        bordspel.rec()
         goBack()
     elif currentScene == "bordspelInfo":
         bordspel.draw()
-        backgroundTint()
+        nextPrevious.backgroundTint()
         bordspelInfo.draw(bordspelGrid)
         titleButton.draw()
         goBack()
@@ -214,7 +215,3 @@ def kopjes():
     text("- Bordspel", 295, 480)
     text("- Gamemodes", 295, 530)
     text("- Tutorial", 295, 580)
-
-def backgroundTint():
-    fill(0,0,0,128)
-    rect(0, 0, 750, 750)
