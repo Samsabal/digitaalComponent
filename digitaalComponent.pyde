@@ -177,7 +177,7 @@ def mousePressed():
                 
     if currentScene == "tutorial":
         #De Previous, Next en Navigatie knoppen.
-        if tutorial.tutoPage != 12:
+        if tutorial.tutoPage != 8:
             if 656 < mouseX < 731 and 678 < mouseY < 718:
                 tutorial.pageUp()
         if tutorial.tutoPage != 1:

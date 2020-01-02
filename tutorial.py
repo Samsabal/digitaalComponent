@@ -1,8 +1,9 @@
 import nextPrevious, bordspel
 
 def setup():
-    global tutoPage, kaart, ziekenhuis, speciaal, muur, westBerlijn, oostBerlijn, tunnel, soldaat, val, richting
+    global tutoPage, kaart, ziekenhuis, speciaal, muur, westBerlijn, oostBerlijn, tunnel, soldaat, spion_rood, spion_blauw, spion_gewond, val, arrow_ver, arrow_hor
     tutoPage = 1
+    
     kaart = loadImage("Images/kaart.png")
     ziekenhuis = loadImage("Images/ziekenhuis.jpg")
     ziekenhuis.resize(60,60)
@@ -16,34 +17,51 @@ def setup():
     oostBerlijn.resize(60,60)
     tunnel = loadImage("Images/tunnel.jpg")
     tunnel.resize(60,60)
-    soldaat = loadImage("Images/soldaat.jpg")
+    soldaat = loadImage("Images/soldaat.png")
     soldaat.resize(60,60)
+    spion_blauw = loadImage("Images/spion_blauw.png")
+    spion_blauw.resize(60,60)
+    spion_rood = loadImage("Images/spion_rood.png")
+    spion_rood.resize(60,60)
+    spion_gewond = loadImage("Images/spion_gewond.png")
+    spion_gewond.resize(60,60)
     val = loadImage("images/val.jpg")
     val.resize(60,60)
-    richting = loadImage("images/richting.jpg")
-    richting.resize(60,60)
+    arrow_ver = loadImage("Images/arrow_ver.png")
+    arrow_ver.resize(60,120)
+    arrow_hor = loadImage("Images/arrow_hor.png")
+    arrow_hor.resize(120,60)
     
 def draw():
     tut1()
-
+    textSize(16)
+    fill(0)
+    #Dit is de page indicator in de handleiding.
+    text("Page " + str(tutoPage), 10, 30)
+    
 def tut1():
-    global tutoPage
-
+    globl tutoPage
+    
     if tutoPage == 1:
+        #Het bordspel dat op de achtergrond staat.
         stroke(0, 0, 0)
         strokeWeight(2)
         bordspel.draw()
+        
+        #Knoppen en de getinte achtergrond
         nextPrevious.backgroundTint()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
         
+        #Het vak waar de tekst in staat
         textVak()
         
+        #De tekst die in het vak staat
         textSize(21)
         fill(0)
         text("""  Welkom bij BvB
   BvB is een tactisch en competitief bordspel. Dat 
-  plaats vindt in Berlijn tijdens de koude oorlog. Het 
+  plaats vindt n Berlijn tijdens de koude oorlog. Het 
   is aan jou om de intel van de tegenstander te stelen 
   en zo de oorlog te winnen.""", 100, 70)
         
@@ -51,13 +69,14 @@ def tut1():
         stroke(0, 0, 0)
         strokeWeight(2)
         bordspel.draw()
+        
         nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
         
-        #Oplichten vakjes
-        image(richting, 375, 390)
+        image(arrow_ver, 555, 330)
+        image(arrow_hor, 435, 450)
         image(westBerlijn, 75, 30)
         image(oostBerlijn, 615, 570)
         
@@ -76,10 +95,14 @@ def tut1():
         stroke(0, 0, 0)
         strokeWeight(2)
         bordspel.draw()
+        
         nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
+        
+        image(spion_rood, 435, 390)
+        image(spion_blauw, 495, 390)
         
         textVak()
         
@@ -99,12 +122,13 @@ def tut1():
         stroke(0, 0, 0)
         strokeWeight(2)
         bordspel.draw()
+        
         nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
         
-        #Oplichten vakjes
+        image(spion_gewond, 435, 390)
         image(ziekenhuis, 435, 510)
          
         textVak()
@@ -112,10 +136,11 @@ def tut1():
         textSize(21)
         fill(0)
         text("""  In BvB kan je spion ook gewond raken. Hierdoor 
-  mag je met elke beurt 1 stap minder zetten. 
+  mag je met elke beurt 1 stap minder zetten.
   Een gewonde spion kan je helen in het ziekenhuis
-  getoond op de pagina hiervoor. Gewonde spionnen 
-  moeten ook de tunnels gerbuiken. 
+  getoond op het bord hieronder.
+  Gewonde spionnen moeten ook de tunnels 
+  gebruiken.
   Wanneer een gewonde spion nog een keer gewond 
   raakt is deze dood. """, 100, 70)
         
@@ -123,12 +148,12 @@ def tut1():
         stroke(0, 0, 0)
         strokeWeight(2)
         bordspel.draw()
+        
         nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
         
-        #Oplichten vakjes
         image(soldaat, 375, 390)
         image(val, 495, 390)
         
@@ -149,12 +174,12 @@ def tut1():
         stroke(0, 0, 0)
         strokeWeight(2)
         bordspel.draw()
+        
         nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
         
-        #Oplichten vakjes
         image(speciaal, 375, 510)
         image(speciaal, 75, 450)
         image(speciaal, 615, 150)
@@ -165,18 +190,23 @@ def tut1():
         fill(0)
         text("""  Er zijn ook speciale kaarten. Dit zijn kaarten die 
   sterker zijn dan gewone kaarten en deze kan je 
-  alleen op het aangewezen vak halen.""", 100, 70)
+  alleen op het aangewezen vak halen.
+  Je mag in totaal 7 kaarten in je hand hebben
+  waarvan 3 special en 4 standaard.
+  Elke beurt heb je de kans om een standaard kaart 
+  om te ruilen je kan deze beurt dan geen kaart 
+  meer spelen.""", 100, 70)
         
     elif tutoPage == 7:
         stroke(0, 0, 0)
         strokeWeight(2)
         bordspel.draw()
+        
         nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
         
-        #Oplichten vakjes
         image(muur, 615, 30)
         image(muur, 315, 330)
         image(muur, 255, 390)
@@ -202,6 +232,7 @@ def tut1():
         stroke(0, 0, 0)
         strokeWeight(2)
         bordspel.draw()
+        
         nextPrevious.backgroundTint()
         nextPrevious.previousButton()
         nextPrevious.homeButton()
@@ -212,12 +243,15 @@ def tut1():
         fill(0)
         text("""  Gefeliciteerd!
   Je bent klaar met de Tutorial en nu helemaal klaar
-  om te spelen. Veel plezier!""", 100, 70)
+  om te spelen. Als er iets nog onduidelijk is raad ik 
+  aan de handleiding door te nemen. 
+  Veel plezier!""", 100, 70)
         
     else:
         return False
     
 def textVak():
+    #Het vak waar de tekst in staat.
     fill(255)
     stroke(0)
     strokeWeight(3)
