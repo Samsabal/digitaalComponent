@@ -6,9 +6,11 @@ def setup():
     template = loadImage("Images/template.jpg")
     img.resize(450,650)
     template.resize(750,750)
+    frameRate(1)
     
     
 def draw():
+    global start,timer
     image(template, 0, 0)
     image(img, 150,10)
     
@@ -18,8 +20,31 @@ def draw():
     strokeWeight(3)
     rect(149, 9, 452, 652)
     
-    #tijdelijke tekst met de instructie, hier komt een timer wanneer deze werkend is.
-    textSize(16)
-    noStroke()
+    
+    
+    
+def draw():
+    global start,font, timer
+    textFont(font)
+    background(230)
+    timer = countdown(start)
     fill(0)
-    text("Zet een timer van 10 minuten, als de timer is afgelopen \n is het spel klaar", 155, 620)
+    text(str(convert(int(timer))), 500, 70)
+
+
+
+
+
+def countdown(start):
+    snap = time.time()
+    return (start + 600) - snap
+
+
+def convert(sec):
+  #functie die de tijd convert naar leesbare text
+  mins = sec // 60
+  sec = sec % 60
+  hours = mins // 60
+  mins = mins % 60
+
+  return str(hours) + ":" + str(mins) + ":" + str(sec)

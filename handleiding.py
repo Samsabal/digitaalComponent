@@ -44,6 +44,7 @@ def setup():
     page17.resize(450,650)
     page18.resize(450,650)
     page19.resize(450,650)
+    frameRate(60)
         
 def draw():
     #Dit is de page indicator in de handleiding.

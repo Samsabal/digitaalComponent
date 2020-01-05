@@ -69,6 +69,7 @@ def setup():
     
     leeg_masked = leeg.copy()
     leeg.mask(mask_image)
+    frameRate(60)
     
 def draw():
     #de afbeelding van het spel in het midden van het scherm en de 
