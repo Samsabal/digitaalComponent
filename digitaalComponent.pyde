@@ -1,5 +1,5 @@
 
-import template, logo, buttons, bordspel, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, bordspelInfo
+import template, logo, buttons, bordspel, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, tutorial
 from nextPrevious import homeButton
 
 
@@ -15,6 +15,7 @@ def setup():
     handleiding.setup()
     rushhour.setup()
     bordspelInfo.setup()
+    tutorial.setup()
     
 def draw():
     global currentScene
@@ -44,6 +45,9 @@ def draw():
     elif currentScene == "rushhour":
         rushhour.draw()
         homeButton()
+    elif currentScene == "tutorial":
+        template.draw()
+        tutorial.draw()
     else:
         return False        
     
@@ -69,6 +73,7 @@ def kopjes():
     text("- Handleiding", 295, 430)
     text("- Bordspel", 295, 480)
     text("- Gamemodes", 295, 530)
+    text("- Tutorial", 295, 580)
     
 def mousePressed():
     #als de muis wordt ingedrukt binnen de verschillende knoppen veranderd de scene
@@ -81,6 +86,8 @@ def mousePressed():
             currentScene = "bordspel"
         elif 285 < mouseX < 455 and 502 < mouseY < 542:
             currentScene = "gamemodes"
+        elif 285 < mouseX < 455 and 552 < mouseY < 592:
+            currentScene = "tutorial"
         elif 656 < mouseX < 731 and 700 < mouseY < 740:
             exit()
             
@@ -105,6 +112,7 @@ def mousePressed():
         if 342 < mouseX < 406 and 667 < mouseY < 735:
             currentScene = "home"
             handleiding.pageIs(1) #Zorgt ervoor dat je niet elke keer helemaal terug hoeft te gaan in de handleiding.
+            tutorial.pageIs(1)
             
             
     if currentScene == "gamemodes":
@@ -164,15 +172,26 @@ def mousePressed():
                 handleiding.pageIs(18)
             if 515 < mouseX < 715 and 575 < mouseY < 625:
                 handleiding.pageIs(19)
-                
-def mouseHover():
-    gridX = (mouseX - 75)/bordspel.w
-    gridY = (mouseY - 30)/bordspel.w
-    if bordspel.grid[gridY][gridX] < 0:
-        cursor(HAND)
-    else:
-        cursor(ARROW)
 
+    if currentScene == "tutorial":
+        #De Previous, Next en Navigatie knoppen.
+        if tutorial.tutoPage != 12:
+            if 656 < mouseX < 731 and 678 < mouseY < 718:
+                tutorial.pageUp()
+        if tutorial.tutoPage != 1:
+            if 19 < mouseX < 94 and 678 < mouseY < 718:
+                tutorial.pageDown()
+
+def mouseHover():
+    if currentScene == "bordspel":
+        gridX = (mouseX - 75)/bordspel.w
+        gridY = (mouseY - 30)/bordspel.w
+        if gridY < 10 and gridX < 10:
+            if bordspel.grid[gridY][gridX] < 0:
+                cursor(HAND)
+            else:
+                cursor(ARROW)
+        
 def hoofdTekst():
     #de tekst op het beginscherm, en de lijn in het midden van het scherm
     textSize(45)
@@ -195,8 +214,8 @@ def kopjes():
     text("- Handleiding", 295, 430)
     text("- Bordspel", 295, 480)
     text("- Gamemodes", 295, 530)
-    
+    text("- Tutorial", 295, 580)
+
 def backgroundTint():
     fill(0,0,0,128)
     rect(0, 0, 750, 750)
- 

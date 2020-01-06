@@ -14,6 +14,7 @@ def draw():
 def nextButton():
     noFill()
     stroke(0, 150)
+    strokeWeight(5)
     rect(656, 678, 75, 40)
     
     textSize(26)
@@ -35,6 +36,7 @@ def nextButton():
 def previousButton():
     noFill()
     stroke(0, 150)
+    strokeWeight(5)
     rect(19, 678, 75, 40)
     
     textSize(26)
