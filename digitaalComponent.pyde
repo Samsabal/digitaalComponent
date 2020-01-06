@@ -183,6 +183,23 @@ def mousePressed():
         if tutorial.tutoPage != 1:
             if 19 < mouseX < 94 and 678 < mouseY < 718:
                 tutorial.pageDown()
+                
+def keyPressed():
+    if currentScene == "tutorial":
+        if tutorial.tutoPage != 8:
+                if keyCode == RIGHT:
+                    tutorial.pageUp()
+        if tutorial.tutoPage != 1:
+                if keyCode == LEFT:
+                    tutorial.pageDown()
+    if currentScene == "handleiding":
+        if handleiding.currentPage != 19:
+                if keyCode == RIGHT:
+                    handleiding.pageUp()
+        if handleiding.currentPage != 0:
+                if keyCode == LEFT:
+                    handleiding.pageDown()
+        
 
 def goBack():
     #de tekst op het scherm "bordspel"
