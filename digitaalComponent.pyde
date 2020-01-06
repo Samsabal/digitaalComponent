@@ -117,7 +117,7 @@ def mousePressed():
             
             
     if currentScene == "gamemodes":
-        if 285 < mouseX < 455 and 280 < mouseY < 320:
+        if 285 < mouseX < 455 and 160 < mouseY < 200:
             print(285 < mouseX < 455 and 280 < mouseY < 320)
             currentScene = "rushhour"
             
