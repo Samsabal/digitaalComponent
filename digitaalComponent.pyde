@@ -21,7 +21,7 @@ def draw():
     #de currentScene laat zien welk scherm het programma moet weergeven
     #de if-statement verteld het programma wat het moet uitvoeren per scene door per scene de betreffende draw() aan te roepen.
     #de if-statement verteld het programma wat het moet uitvoeren per scene.
-
+    mouseHover()
     if currentScene == "home":
         template.draw()
         logo.draw()
@@ -90,7 +90,8 @@ def mousePressed():
         if gridY < 10 and gridX < 10:
             if bordspel.grid[gridY][gridX] < 0:
                 bordspelGrid = bordspel.grid[gridY][gridX]
-                currentScene = "bordspelInfo"      
+                currentScene = "bordspelInfo"   
+                
     if currentScene == "bordspelInfo":
         if 175 < mouseX < 345 and 300 < mouseY < 340:
             cursor(ARROW)
@@ -163,6 +164,14 @@ def mousePressed():
                 handleiding.pageIs(18)
             if 515 < mouseX < 715 and 575 < mouseY < 625:
                 handleiding.pageIs(19)
+                
+def mouseHover():
+    gridX = (mouseX - 75)/bordspel.w
+    gridY = (mouseY - 30)/bordspel.w
+    if bordspel.grid[gridY][gridX] < 0:
+        cursor(HAND)
+    else:
+        cursor(ARROW)
 
 def hoofdTekst():
     #de tekst op het beginscherm, en de lijn in het midden van het scherm
