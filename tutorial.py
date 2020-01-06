@@ -40,7 +40,7 @@ def draw():
     text("Page " + str(tutoPage), 10, 30)
     
 def tut1():
-    globl tutoPage
+    global tutoPage
     
     if tutoPage == 1:
         #Het bordspel dat op de achtergrond staat.
@@ -254,8 +254,8 @@ def textVak():
     #Het vak waar de tekst in staat.
     fill(255)
     stroke(0)
-    strokeWeight(3)
-    rect(100, 45, 550, 300)
+    strokeWeight(1)
+    rect(100, 45, 550, 300, 5)
     
 def pageIs(x):
     #Zorgt ervoor dat de knoppen in de Snelle Navigatie werken.
