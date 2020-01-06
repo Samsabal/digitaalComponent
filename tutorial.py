@@ -62,7 +62,7 @@ def tut1():
         fill(0)
         text("""  Welkom bij BvB
   BvB is een tactisch en competitief bordspel. Dat 
-  plaats vindt n Berlijn tijdens de koude oorlog. Het 
+  plaats vindt in Berlijn tijdens de koude oorlog. Het 
   is aan jou om de intel van de tegenstander te stelen 
   en zo de oorlog te winnen.""", 100, 70)
         
