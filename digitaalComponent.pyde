@@ -1,5 +1,5 @@
 
-import template, logo, buttons, bordspel, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour
+import template, logo, buttons, bordspel, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, bordspelInfo
 from nextPrevious import homeButton
 
 
@@ -14,6 +14,7 @@ def setup():
     nextPrevious.setup()
     handleiding.setup()
     rushhour.setup()
+    bordspelInfo.setup()
     
 def draw():
     global currentScene
@@ -89,11 +90,15 @@ def mousePressed():
         if gridY < 10 and gridX < 10:
             if bordspel.grid[gridY][gridX] < 0:
                 bordspelGrid = bordspel.grid[gridY][gridX]
-                currentScene = "bordspelInfo"
-            
+                currentScene = "bordspelInfo"      
     if currentScene == "bordspelInfo":
-        if 600 < mouseX < 648 and 77 < mouseY < 122:
+        if 175 < mouseX < 345 and 300 < mouseY < 340:
+            cursor(ARROW)
             currentScene = "bordspel"
+        if 405 < mouseX < 575 and 300 < mouseY < 340:
+            cursor(ARROW)
+            currentScene = "handleiding"
+            handleiding.currentPage = bordspelInfo.infoPage
             
     if currentScene != "home":
         if 342 < mouseX < 406 and 667 < mouseY < 735:
