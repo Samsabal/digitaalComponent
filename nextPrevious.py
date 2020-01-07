@@ -69,6 +69,8 @@ def homeButton():
     textSize(20)
     fill(0)
     text("Hoofdscherm:", 200, 705)
+    stroke(0)
+    fill(0)
     
 # making the button light up when the mouse hovers over it
     
@@ -81,7 +83,25 @@ def homeButton():
         textSize(20)
         fill(255)
         text("Hoofdscherm:", 200, 705)
+        stroke(0)
+        fill(0)
     else: 
         return False
+    
+    
+def menu():
+    noFill()
+    strokeWeight(3)
+    stroke(0)
+    textSize(26)
+    text("MENU", 20, 710)
+    rect(19, 678, 75, 40)
+    
+    if 19 < mouseX < 94 and 678 < mouseY < 718:
+        stroke(255,220)
+        rect(19, 678, 75, 40)
+        stroke(0)
+        fill(0)
+
 
     
