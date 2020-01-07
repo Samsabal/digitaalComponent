@@ -1,4 +1,4 @@
-import time
+import time, timer as t
 
 def setup():
     #laad de uitleg van rushhour en de template achtergrond in en resized deze naar het juiste formaat.
@@ -8,7 +8,6 @@ def setup():
     img.resize(450,650)
     template.resize(750,750)
     frameRate(1)
-    start = time.time()
     
     
 def draw():
@@ -23,7 +22,7 @@ def draw():
     rect(149, 9, 452, 652)
     
     #timergerelateerde text + rectangles
-    timer = countdown(start)
+    timer = countdown(t.start)
     fill(0)
     textSize(30)
     text(str(convert(int(timer))), 30, 375)
