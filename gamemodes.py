@@ -35,6 +35,7 @@ def options():
 def button1():
     noFill()
     stroke(0,150)
+    strokeWeight(3)
     rect(285,160,170,40)
     rect(285,210,170,40)
     rect(280, 490, 180, 40)
