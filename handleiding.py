@@ -49,15 +49,16 @@ def setup():
 def draw():
     #Dit is de page indicator in de handleiding.
     image(template, 0, 0)
+    strokeWeight(3)
+    handleiding1()
     textSize(16)
     fill(0)
-    text("Page " + str(currentPage), 10, 30)
-    handleiding1()
     noFill()
     strokeWeight(5)
     stroke(0)
     if currentPage > 0:
         rect(150,10,450,650)
+        text(str(currentPage), 575, 30)
     
 def handleiding1():
     #Hiermee wordt de afbeelding in handleiding veranderd.

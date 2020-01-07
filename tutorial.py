@@ -39,7 +39,7 @@ def draw():
     textSize(16)
     fill(0)
     #Dit is de page indicator in de handleiding.
-    text("Page " + str(tutoPage), 10, 30)
+    text(str(tutoPage), 635, 338)
     
 def tut1():
     global tutoPage
@@ -239,9 +239,11 @@ def tut1():
         textSize(21)
         fill(0)
         text("""  Gefeliciteerd!
-  Je bent klaar met de Tutorial en nu helemaal klaar
-  om te spelen. Als er iets nog onduidelijk is raadpleeg
-  dan de handleiding. 
+             
+  Je hebt de Tutorial afgemaakt en bent nu helemaal 
+  klaar om te spelen. Als er iets nog onduidelijk is 
+  raadpleeg dan de handleiding. 
+  
   Veel plezier!""", 100, 70)
         
     else:
