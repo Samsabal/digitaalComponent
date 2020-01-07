@@ -1,5 +1,5 @@
 
-import template, logo, buttons, bordspel, titleButton, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, tutorial
+import template, logo, buttons, bordspel, titleButton, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, tutorial, timer as t
 from nextPrevious import homeButton
 
 
@@ -78,6 +78,7 @@ def kopjes():
     text("- Tutorial", 295, 580)
     
 def mousePressed():
+    global start
     #als de muis wordt ingedrukt binnen de verschillende knoppen veranderd de scene
     #en dus veranderd de if in draw() en zo verschijnt een ander scherm
     global currentScene, bordspelGrid
@@ -117,8 +118,9 @@ def mousePressed():
             
             
     if currentScene == "gamemodes":
-        if 285 < mouseX < 455 and 280 < mouseY < 320:
+        if 285 < mouseX < 455 and 160 < mouseY < 200:
             print(285 < mouseX < 455 and 280 < mouseY < 320)
+            t.start = t.startTimer()
             currentScene = "rushhour"
             
     if currentScene == "handleiding":

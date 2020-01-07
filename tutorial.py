@@ -10,6 +10,8 @@ def setup():
     speciaal.resize(400,400)
     muur = loadImage("images/muur.jpg")
     muur.resize(400,400)
+    frameRate(60)
+    
 def draw():
     tut1()
 
