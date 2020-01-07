@@ -7,24 +7,28 @@ def draw():
 
         
 def button1():
+    #handleiding
     noFill()
     stroke(0,150)
     rect(285,402,170,40)
     mouseHover()
     
 def button2():
+    #bordspel
     noFill()
     stroke(0,150)
     rect(285,452,170,40)
     mouseHover()
     
 def button3():
+    #gamemodes
     noFill()
     stroke(0,150)
     rect(285,502,170,40)
     mouseHover()
     
 def button4():
+    #tutorial
     noFill()
     stroke(0,150)
     rect(285,552,170,40)

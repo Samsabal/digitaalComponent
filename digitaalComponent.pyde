@@ -1,5 +1,5 @@
 
-import template, logo, buttons, bordspel, titleButton, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, tutorial
+import template, logo, buttons, bordspel, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, tutorial, timer as t
 from nextPrevious import homeButton
 
 
@@ -11,10 +11,10 @@ def setup():
     template.setup()
     logo.setup()
     bordspel.setup()
-    titleButton.setup()
     nextPrevious.setup()
     handleiding.setup()
     rushhour.setup()
+    bordspelInfo.setup()
     tutorial.setup()
     
 def draw():
@@ -22,7 +22,7 @@ def draw():
     #de currentScene laat zien welk scherm het programma moet weergeven
     #de if-statement verteld het programma wat het moet uitvoeren per scene door per scene de betreffende draw() aan te roepen.
     #de if-statement verteld het programma wat het moet uitvoeren per scene.
-
+    mouseHover()
     if currentScene == "home":
         template.draw()
         logo.draw()
@@ -35,12 +35,12 @@ def draw():
         titleButton.draw()
         bordspel.rec()
         goBack()
+        homeButton()
     elif currentScene == "bordspelInfo":
         bordspel.draw()
         nextPrevious.backgroundTint()
         bordspelInfo.draw(bordspelGrid)
-        titleButton.draw()
-        goBack()
+        homeButton()
     elif currentScene == "gamemodes":
         gamemodes.draw()
     elif currentScene == "handleiding":
@@ -79,6 +79,7 @@ def kopjes():
     text("- Tutorial", 295, 580)
     
 def mousePressed():
+    global start
     #als de muis wordt ingedrukt binnen de verschillende knoppen veranderd de scene
     #en dus veranderd de if in draw() en zo verschijnt een ander scherm
     global currentScene, bordspelGrid
@@ -95,22 +96,23 @@ def mousePressed():
             exit()
             
     if currentScene == "bordspel":
-        if 49 < mouseX < 105 and 679 < mouseY < 745:
-            currentScene = "home"
         gridX = (mouseX - 75)/bordspel.w
         gridY = (mouseY - 30)/bordspel.w
         if gridY < 10 and gridX < 10:
             if bordspel.grid[gridY][gridX] < 0:
                 bordspelGrid = bordspel.grid[gridY][gridX]
-                currentScene = "bordspelInfo"
-            
+                currentScene = "bordspelInfo"   
+                
     if currentScene == "bordspelInfo":
-        if 49 < mouseX < 105 and 679 < mouseY < 745:
-            currentScene = "home"
-        if 600 < mouseX < 648 and 77 < mouseY < 122:
+        if 175 < mouseX < 345 and 300 < mouseY < 340:
+            cursor(ARROW)
             currentScene = "bordspel"
+        if 405 < mouseX < 575 and 300 < mouseY < 340:
+            cursor(ARROW)
+            currentScene = "handleiding"
+            handleiding.currentPage = bordspelInfo.infoPage
             
-    if currentScene == "gamemodes" or currentScene == "handleiding" or currentScene == "rushhour" or currentScene == "tutorial":
+    if currentScene != "home":
         if 342 < mouseX < 406 and 667 < mouseY < 735:
             currentScene = "home"
             handleiding.pageIs(1) #Zorgt ervoor dat je niet elke keer helemaal terug hoeft te gaan in de handleiding.
@@ -118,8 +120,9 @@ def mousePressed():
             
             
     if currentScene == "gamemodes":
-        if 285 < mouseX < 455 and 280 < mouseY < 320:
+        if 285 < mouseX < 455 and 160 < mouseY < 200:
             print(285 < mouseX < 455 and 280 < mouseY < 320)
+            t.start = t.startTimer()
             currentScene = "rushhour"
             
     if currentScene == "handleiding":
@@ -174,7 +177,7 @@ def mousePressed():
                 handleiding.pageIs(18)
             if 515 < mouseX < 715 and 575 < mouseY < 625:
                 handleiding.pageIs(19)
-                
+
     if currentScene == "tutorial":
         #De Previous, Next en Navigatie knoppen.
         if tutorial.tutoPage != 8:
@@ -201,13 +204,15 @@ def keyPressed():
                     handleiding.pageDown()
         
 
-def goBack():
-    #de tekst op het scherm "bordspel"
-    global currentScene    
-    if currentScene == "bordspel" or "bordspelInfo":
-        textSize(21)
-        fill(0)
-        text("Klik op het logo om terug te gaan naar het hoofdscherm", 130, 717)
+def mouseHover():
+    if currentScene == "bordspel":
+        gridX = (mouseX - 75)/bordspel.w
+        gridY = (mouseY - 30)/bordspel.w
+        if gridY < 10 and gridX < 10:
+            if bordspel.grid[gridY][gridX] < 0:
+                cursor(HAND)
+            else:
+                cursor(ARROW)
         
 def hoofdTekst():
     #de tekst op het beginscherm, en de lijn in het midden van het scherm

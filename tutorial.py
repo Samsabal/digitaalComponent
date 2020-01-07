@@ -10,8 +10,6 @@ def setup():
     ziekenhuis.resize(60,60)
     speciaal = loadImage("images/speciaal.jpg")
     speciaal.resize(60,60)
-    muur = loadImage("images/muur.jpg")
-    muur.resize(60,60)
     westBerlijn = loadImage("Images/west-berlijn.jpg")
     westBerlijn.resize(60,60)
     oostBerlijn = loadImage("Images/oost-berlijn.jpg")
@@ -32,7 +30,10 @@ def setup():
     arrow_ver.resize(60,120)
     arrow_hor = loadImage("Images/arrow_hor.png")
     arrow_hor.resize(120,60)
-    
+    muur = loadImage("images/muur.png")
+    muur.resize(600,600)
+    frameRate(60)
+
 def draw():
     tut1()
     textSize(16)
@@ -208,13 +209,8 @@ def tut1():
         nextPrevious.nextButton()
         nextPrevious.homeButton()
         
-        image(muur, 615, 30)
-        image(muur, 315, 330)
-        image(muur, 255, 390)
-        image(muur, 195, 450)
-        image(muur, 135, 510)
-        image(muur, 75, 570)
         image(tunnel, 255, 330)
+        image(muur, 75, 30)
         
         textVak()
         
@@ -244,8 +240,8 @@ def tut1():
         fill(0)
         text("""  Gefeliciteerd!
   Je bent klaar met de Tutorial en nu helemaal klaar
-  om te spelen. Als er iets nog onduidelijk is raad ik 
-  aan de handleiding door te nemen. 
+  om te spelen. Als er iets nog onduidelijk is raadpleeg
+  dan de handleiding. 
   Veel plezier!""", 100, 70)
         
     else:
