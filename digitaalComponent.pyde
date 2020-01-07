@@ -1,6 +1,7 @@
 
-import template, logo, buttons, bordspel, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, tutorial, timer as t
+import template, logo, buttons, bordspel, titleButton, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, tutorial, timer as t, specialSacrifice, blokkade, hardcore
 from nextPrevious import homeButton
+from nextPrevious import menu
 
 def setup():
     #wordt 1 keer uitgevoerd. roept alle modules die een setup hebben en voert deze uit aan het begin van het programma.
@@ -13,7 +14,10 @@ def setup():
     nextPrevious.setup()
     handleiding.setup()
     rushhour.setup()
+    specialSacrifice.setup()
     tutorial.setup()
+    blokkade.setup()
+    hardcore.setup()
     
 def draw():
     global currentScene
@@ -43,6 +47,19 @@ def draw():
     elif currentScene == "rushhour":
         rushhour.draw()
         homeButton()
+        menu()
+    elif currentScene == "specialSacrifice":
+        specialSacrifice.draw()
+        homeButton()
+        menu()
+    elif currentScene == "blokkade":
+        blokkade.draw()
+        homeButton()
+        menu()
+    elif currentScene == "hardcore":
+        hardcore.draw()
+        homeButton()
+        menu()
     elif currentScene == "tutorial":
         template.draw()
         tutorial.draw()
@@ -121,8 +138,21 @@ def mousePressed():
     elif currentScene == "gamemodes":
         if 285 < mouseX < 455 and 160 < mouseY < 200:
             print(285 < mouseX < 455 and 280 < mouseY < 320)
+
+    elif currentScene == "rushhour" or currentScene == "specialSacrifice" or currentScene == "blokkade" or currentScene == "hardcore":
+        if 19 < mouseX < 94 and 678 < mouseY < 718:
+            currentScene = "gamemodes"    
+    
+    elif currentScene == "gamemodes":
+        if 100 < mouseX < 280 and 170 < mouseY < 210:
             t.start = t.startTimer()
             currentScene = "rushhour"
+        elif 470 < mouseX < 650 and 170 < mouseY < 210:
+            currentScene = "specialSacrifice"
+        elif 100 < mouseX < 280 and 520 < mouseY < 560:
+            currentScene = "blokkade" 
+        elif 470 < mouseX < 650 and 520 < mouseY < 560:
+            currentScene = "hardcore"
             
     elif currentScene == "handleiding":
         #De Previous, Next en Navigatie knoppen.
