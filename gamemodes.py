@@ -25,11 +25,11 @@ def options():
     fill(0)
     
     #opties van verschillende gamemodes
-    text("- Rush hour", 295, 186)
-    text("- titel    ", 295, 236)
+    text("- Rush Hour", 295, 186)
+    text("- Special Sacrifice", 295, 236)
     #opties van verschillende mapindelingen
-    text("- indeling 1", 290, 516)
-    text("- indeling 2", 290, 566)
+    text("- Blokkade", 290, 516)
+    text("- ", 290, 566)
     
 
 def button1():
