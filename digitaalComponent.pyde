@@ -1,7 +1,7 @@
 
-import template, logo, buttons, bordspel, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, tutorial, timer as t
+import template, logo, buttons, bordspel, titleButton, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, tutorial, timer as t, specialSacrifice, blokkade, hardcore
 from nextPrevious import homeButton
-
+from nextPrevious import menu
 
 def setup():
     #wordt 1 keer uitgevoerd. roept alle modules die een setup hebben en voert deze uit aan het begin van het programma.
@@ -14,8 +14,10 @@ def setup():
     nextPrevious.setup()
     handleiding.setup()
     rushhour.setup()
-    bordspelInfo.setup()
+    specialSacrifice.setup()
     tutorial.setup()
+    blokkade.setup()
+    hardcore.setup()
     
 def draw():
     global currentScene
@@ -32,9 +34,6 @@ def draw():
         kopjes()
     elif currentScene == "bordspel":
         bordspel.draw()
-        titleButton.draw()
-        bordspel.rec()
-        goBack()
         homeButton()
     elif currentScene == "bordspelInfo":
         bordspel.draw()
@@ -48,6 +47,19 @@ def draw():
     elif currentScene == "rushhour":
         rushhour.draw()
         homeButton()
+        menu()
+    elif currentScene == "specialSacrifice":
+        specialSacrifice.draw()
+        homeButton()
+        menu()
+    elif currentScene == "blokkade":
+        blokkade.draw()
+        homeButton()
+        menu()
+    elif currentScene == "hardcore":
+        hardcore.draw()
+        homeButton()
+        menu()
     elif currentScene == "tutorial":
         template.draw()
         tutorial.draw()
@@ -79,10 +91,9 @@ def kopjes():
     text("- Tutorial", 295, 580)
     
 def mousePressed():
-    global start
     #als de muis wordt ingedrukt binnen de verschillende knoppen veranderd de scene
     #en dus veranderd de if in draw() en zo verschijnt een ander scherm
-    global currentScene, bordspelGrid
+    global start,  currentScene, bordspelGrid
     if currentScene == "home":
         if 285 < mouseX < 455 and 402 < mouseY < 442:
             currentScene = "handleiding"
@@ -93,39 +104,57 @@ def mousePressed():
         elif 285 < mouseX < 455 and 552 < mouseY < 592:
             currentScene = "tutorial"
         elif 656 < mouseX < 731 and 700 < mouseY < 740:
-            exit()
+            exit()    
             
-    if currentScene == "bordspel":
+    elif currentScene == "bordspel":
         gridX = (mouseX - 75)/bordspel.w
         gridY = (mouseY - 30)/bordspel.w
         if gridY < 10 and gridX < 10:
             if bordspel.grid[gridY][gridX] < 0:
                 bordspelGrid = bordspel.grid[gridY][gridX]
-                currentScene = "bordspelInfo"   
-                
-    if currentScene == "bordspelInfo":
+                currentScene = "bordspelInfo"
+                if bordspelGrid == -1:
+                    handleiding.pageIs(7)
+                elif bordspelGrid == -2:
+                    handleiding.pageIs(7)
+                elif bordspelGrid == -3:
+                    handleiding.pageIs(9)
+                elif bordspelGrid == -4:
+                    handleiding.pageIs(10)
+                elif bordspelGrid == -5:
+                    handleiding.pageIs(8)
+                elif bordspelGrid == -6:
+                    handleiding.pageIs(12)
+                else:
+                    return False
+    elif currentScene == "bordspelInfo":
         if 175 < mouseX < 345 and 300 < mouseY < 340:
             cursor(ARROW)
             currentScene = "bordspel"
         if 405 < mouseX < 575 and 300 < mouseY < 340:
             cursor(ARROW)
             currentScene = "handleiding"
-            handleiding.currentPage = bordspelInfo.infoPage
             
-    if currentScene != "home":
-        if 342 < mouseX < 406 and 667 < mouseY < 735:
-            currentScene = "home"
-            handleiding.pageIs(1) #Zorgt ervoor dat je niet elke keer helemaal terug hoeft te gaan in de handleiding.
-            tutorial.pageIs(1)
-            
-            
-    if currentScene == "gamemodes":
+    elif currentScene == "gamemodes":
         if 285 < mouseX < 455 and 160 < mouseY < 200:
             print(285 < mouseX < 455 and 280 < mouseY < 320)
+
+    elif currentScene == "rushhour" or currentScene == "specialSacrifice" or currentScene == "blokkade" or currentScene == "hardcore":
+        if 19 < mouseX < 94 and 678 < mouseY < 718:
+            currentScene = "gamemodes"    
+    
+    elif currentScene == "gamemodes":
+        if 100 < mouseX < 280 and 170 < mouseY < 210:
             t.start = t.startTimer()
             currentScene = "rushhour"
+        elif 470 < mouseX < 650 and 170 < mouseY < 210:
+            currentScene = "specialSacrifice"
+        elif 100 < mouseX < 280 and 520 < mouseY < 560:
+            currentScene = "blokkade" 
+        elif 470 < mouseX < 650 and 520 < mouseY < 560:
+            currentScene = "hardcore"
             
-    if currentScene == "handleiding":
+    elif currentScene == "handleiding":
         #De Previous, Next en Navigatie knoppen.
         if handleiding.currentPage != 19:
             if 656 < mouseX < 731 and 678 < mouseY < 718:
@@ -177,8 +206,8 @@ def mousePressed():
                 handleiding.pageIs(18)
             if 515 < mouseX < 715 and 575 < mouseY < 625:
                 handleiding.pageIs(19)
-
-    if currentScene == "tutorial":
+                
+    elif currentScene == "tutorial":
         #De Previous, Next en Navigatie knoppen.
         if tutorial.tutoPage != 8:
             if 656 < mouseX < 731 and 678 < mouseY < 718:
@@ -186,6 +215,12 @@ def mousePressed():
         if tutorial.tutoPage != 1:
             if 19 < mouseX < 94 and 678 < mouseY < 718:
                 tutorial.pageDown()
+    
+    if currentScene != "home":
+        if 342 < mouseX < 406 and 667 < mouseY < 735:
+            currentScene = "home"
+            handleiding.pageIs(1) #Zorgt ervoor dat je niet elke keer helemaal terug hoeft te gaan in de handleiding.
+            tutorial.pageIs(1)
                 
 def keyPressed():
     if currentScene == "tutorial":
@@ -203,7 +238,6 @@ def keyPressed():
                 if keyCode == LEFT:
                     handleiding.pageDown()
         
-
 def mouseHover():
     if currentScene == "bordspel":
         gridX = (mouseX - 75)/bordspel.w

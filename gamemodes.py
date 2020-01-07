@@ -25,39 +25,41 @@ def options():
     fill(0)
     
     #opties van verschillende gamemodes
-    text("- Rush Hour", 295, 186)
-    text("- Special Sacrifice", 295, 236)
+    text("- Rush Hour", 110, 196)
+    textSize(18)
+    text("- Special Sacrifice", 480, 196)
+    textSize(21)
     #opties van verschillende mapindelingen
-    text("- Blokkade", 290, 516)
-    text("- ", 290, 566)
+    text("- Blokkade", 110, 546)
+    text("- Hardcore", 480, 546)
     
 
 def button1():
     noFill()
     stroke(0,150)
     strokeWeight(3)
-    rect(285,160,170,40)
-    rect(285,210,170,40)
-    rect(280, 490, 180, 40)
-    rect(280, 540, 180, 40)
+    rect(100,170,170,40)
+    rect(470,170,170,40)
+    rect(100, 520, 170, 40)
+    rect(470, 520, 170, 40)
     mouseHover()
 
 def mouseHover():
-    if 285 < mouseX < 455 and 160 < mouseY < 200:
+    if 100 < mouseX < 280 and 170 < mouseY < 210:
         noFill()
         stroke(255,240)
-        rect(285,160,170,40)
-    elif 285 < mouseX < 455 and 210 < mouseY < 250:
+        rect(100,170,170,40)
+    elif 470 < mouseX < 650 and 170 < mouseY < 210:
         noFill()
         stroke(255,240)
-        rect(285,210,170,40)
-    elif 280 < mouseX < 460 and 490 < mouseY < 530:
+        rect(470,170,170,40)
+    elif 100 < mouseX < 280 and 520 < mouseY < 560:
         noFill()
         stroke(255,240)
-        rect(280, 490, 180, 40)
-    elif 280 < mouseX < 460 and 540 < mouseY < 580:
+        rect(100, 520, 170, 40)
+    elif 470 < mouseX < 650 and 520 < mouseY < 560:
         noFill()
         stroke(255,240)
-        rect(280, 540, 180, 40)
+        rect(470, 520, 170, 40)
     else:
         return False
