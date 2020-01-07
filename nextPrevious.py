@@ -104,4 +104,8 @@ def menu():
         fill(0)
 
 
+def backgroundTint():
+    strokeWeight(0)
+    fill(0,0,0,128)
+    rect(0, 0, 750, 750)
     
