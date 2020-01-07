@@ -84,4 +84,8 @@ def homeButton():
     else: 
         return False
 
+def backgroundTint():
+    strokeWeight(0)
+    fill(0,0,0,128)
+    rect(0, 0, 750, 750)
     

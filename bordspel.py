@@ -68,6 +68,12 @@ def setup():
     leeg.mask(mask_image)
     frameRate(60)
     
+def rec():
+    noFill()
+    stroke(0)
+    strokeWeight(3)
+    rect(1, 673, 747, 75)
+    
 def draw():
     #de afbeelding van het spel in het midden van het scherm en de 
     #achtergrond over heel het scherm

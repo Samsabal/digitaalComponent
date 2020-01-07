@@ -32,10 +32,13 @@ def draw():
         kopjes()
     elif currentScene == "bordspel":
         bordspel.draw()
+        titleButton.draw()
+        bordspel.rec()
+        goBack()
         homeButton()
     elif currentScene == "bordspelInfo":
         bordspel.draw()
-        backgroundTint()
+        nextPrevious.backgroundTint()
         bordspelInfo.draw(bordspelGrid)
         homeButton()
     elif currentScene == "gamemodes":
@@ -177,12 +180,29 @@ def mousePressed():
 
     if currentScene == "tutorial":
         #De Previous, Next en Navigatie knoppen.
-        if tutorial.tutoPage != 12:
+        if tutorial.tutoPage != 8:
             if 656 < mouseX < 731 and 678 < mouseY < 718:
                 tutorial.pageUp()
         if tutorial.tutoPage != 1:
             if 19 < mouseX < 94 and 678 < mouseY < 718:
                 tutorial.pageDown()
+                
+def keyPressed():
+    if currentScene == "tutorial":
+        if tutorial.tutoPage != 8:
+                if keyCode == RIGHT:
+                    tutorial.pageUp()
+        if tutorial.tutoPage != 1:
+                if keyCode == LEFT:
+                    tutorial.pageDown()
+    if currentScene == "handleiding":
+        if handleiding.currentPage != 19:
+                if keyCode == RIGHT:
+                    handleiding.pageUp()
+        if handleiding.currentPage != 0:
+                if keyCode == LEFT:
+                    handleiding.pageDown()
+        
 
 def mouseHover():
     if currentScene == "bordspel":
@@ -217,7 +237,3 @@ def kopjes():
     text("- Bordspel", 295, 480)
     text("- Gamemodes", 295, 530)
     text("- Tutorial", 295, 580)
-
-def backgroundTint():
-    fill(0,0,0,128)
-    rect(0, 0, 750, 750)
