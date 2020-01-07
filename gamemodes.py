@@ -9,14 +9,14 @@ def draw():
     header()    
     stroke(0)
     strokeWeight(4)
-    line(0, 328, 750, 328)
-    line(0, 387, 750, 387)
+    line(0, 326, 750, 326)
+    line(0, 385, 750, 385)
     
 def header():
     textSize(35)
     fill(0)
     text("Kies de gamemode die je wilt spelen:", 75, 116)
-    text("Of", 370, 370)
+    text("Of", 355, 368)
     textSize(33)
     text("Kies de spelindeling die je wilt gebruiken:", 47, 456)
     
@@ -25,40 +25,40 @@ def options():
     fill(0)
     
     #opties van verschillende gamemodes
-    text("- Rush Hour", 110, 196)
+    text("- Rush Hour", 295, 186)
     textSize(18)
-    text("- Special Sacrifice", 480, 196)
+    text("- Special Sacrifice", 295, 236)
     textSize(21)
     #opties van verschillende mapindelingen
-    text("- Blokkade", 110, 546)
-    text("- Hardcore", 480, 546)
+    text("- Blokkade", 290, 516)
+    text("- Hardcore", 290, 566)
     
 
 def button1():
     noFill()
     stroke(0,150)
-    rect(100,170,170,40)
-    rect(470,170,170,40)
-    rect(100, 520, 170, 40)
-    rect(470, 520, 170, 40)
+    rect(285,160,170,40)
+    rect(285,210,170,40)
+    rect(285, 490, 170, 40)
+    rect(285, 540, 170, 40)
     mouseHover()
 
 def mouseHover():
-    if 100 < mouseX < 280 and 170 < mouseY < 210:
+    if 285 < mouseX < 455 and 160 < mouseY < 200:
         noFill()
         stroke(255,240)
-        rect(100,170,170,40)
-    elif 470 < mouseX < 650 and 170 < mouseY < 210:
+        rect(285,160,170,40)
+    elif 285 < mouseX < 455 and 210 < mouseY < 250:
         noFill()
         stroke(255,240)
-        rect(470,170,170,40)
-    elif 100 < mouseX < 280 and 520 < mouseY < 560:
+        rect(285,210,170,40)
+    elif 285 < mouseX < 455 and 490 < mouseY < 530:
         noFill()
         stroke(255,240)
-        rect(100, 520, 170, 40)
-    elif 470 < mouseX < 650 and 520 < mouseY < 560:
+        rect(285, 490, 170, 40)
+    elif 285 < mouseX < 455 and 540 < mouseY < 580:
         noFill()
         stroke(255,240)
-        rect(470, 520, 170, 40)
+        rect(285, 540, 170, 40)
     else:
         return False

@@ -137,14 +137,14 @@ def mousePressed():
             
             
     if currentScene == "gamemodes":
-        if 100 < mouseX < 280 and 170 < mouseY < 210:
+        if 285 < mouseX < 455 and 160 < mouseY < 200:
             t.start = t.startTimer()
             currentScene = "rushhour"
-        elif 470 < mouseX < 650 and 170 < mouseY < 210:
+        elif 285 < mouseX < 455 and 210 < mouseY < 250:
             currentScene = "specialSacrifice"
-        elif 100 < mouseX < 280 and 520 < mouseY < 560:
+        elif 285 < mouseX < 455 and 490 < mouseY < 530:
             currentScene = "blokkade" 
-        elif 470 < mouseX < 650 and 520 < mouseY < 560:
+        elif 285 < mouseX < 455 and 540 < mouseY < 580:
             currentScene = "hardcore"
             
     if currentScene == "handleiding":
@@ -240,7 +240,7 @@ def hoofdTekst():
     #de tekst op het beginscherm, en de lijn in het midden van het scherm
     textSize(45)
     fill(0)
-    text("Battle van Berlijn", 200, 330)
+    text("Battle van Berlijn", 196, 330)
     
     stroke(0)
     strokeWeight(3)
