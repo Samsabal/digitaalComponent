@@ -1,17 +1,17 @@
 import nextPrevious, bordspel
 
 def setup():
-    global tutoPage, kaart, ziekenhuis, speciaal, muur
+    global tutoPage, kaart, ziekenhuis, speciaal, muurTut
     tutoPage = 1
     kaart = loadImage("Images/kaart.png")
     ziekenhuis = loadImage("Images/ziekenhuis.jpg")
     ziekenhuis.resize(400,400)
     speciaal = loadImage("images/speciaal.jpg")
     speciaal.resize(400,400)
-    muur = loadImage("images/muur.jpg")
-    muur.resize(400,400)
+    muurTut = loadImage("images/speciaal.jpg")
+    muurTut.resize(400,400)
     frameRate(60)
-    
+
 def draw():
     tut1()
 
@@ -135,7 +135,7 @@ def tut1():
         nextPrevious.previousButton()
         nextPrevious.nextButton()
         nextPrevious.homeButton()
-        image(muur, 170, 130)
+        image(muurTut, 170, 130)
     elif tutoPage == 11:
         nextPrevious.previousButton()
         nextPrevious.nextButton()
