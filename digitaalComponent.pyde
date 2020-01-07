@@ -32,9 +32,6 @@ def draw():
         kopjes()
     elif currentScene == "bordspel":
         bordspel.draw()
-        titleButton.draw()
-        bordspel.rec()
-        goBack()
         homeButton()
     elif currentScene == "bordspelInfo":
         bordspel.draw()
