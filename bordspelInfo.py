@@ -1,9 +1,3 @@
-
-infoPage = 0
-
-def setup():
-    global infoPage
-    infoPage = 0
     
 def draw(bordspelGrid):
     fill(255)
@@ -16,7 +10,6 @@ def draw(bordspelGrid):
     closeButton()
     readMoreButton()
     if bordspelGrid == -1: # West-Berlijn
-        infoPage = 7
         textSize(28)
         text("Thuisbasis West-Berlijn", 120, 125)
         textSize(21)
@@ -24,7 +17,6 @@ def draw(bordspelGrid):
              "beginnen in het vak van de thuisbasis van\n" +
              "West-Berlijn.", 120, 180)
     elif bordspelGrid == -2: # Oost-Berlijn
-        infoPage = 7
         textSize(28)
         text("Thuisbasis Oost-Berlijn", 120, 125)
         textSize(21)
@@ -32,14 +24,12 @@ def draw(bordspelGrid):
              "beginnen in het vak van de thuisbasis van\n"+
              "Oost-Berlijn.", 120, 180)
     elif bordspelGrid == -3: # Ziekenhuis
-        infoPage = 9
         textSize(28)
         text("Ziekenhuis", 120, 125)
         textSize(21)
         text("Als je op dit vak loopt kun je een gewonde\n"+
              "spion helen.", 120, 180)
     elif bordspelGrid == -4: # Muur
-        infoPage = 10
         textSize(28)
         text("Berlijnse muur", 120, 125)
         textSize(21)
@@ -47,14 +37,12 @@ def draw(bordspelGrid):
              "gooien. Als je 2 gooit blijf je staan en\n"+
              "als je 1 gooit raak je gewond.", 120, 180)
     elif bordspelGrid == -5: # Speciaal
-        infoPage = 8
         textSize(28)
         text("Speciale kaart", 120, 125)
         textSize(21)
         text("Als je op dit vak komt mag je een speciale\n"+
              "kaart pakken.", 120, 180)
     elif bordspelGrid == -6: # Tunnel
-        infoPage = 12
         textSize(28)
         text("Tunnel", 120, 125)
         textSize(21)
