@@ -7,4 +7,4 @@ def setup():
     
 def draw():
     global logo
-    image(logo, 280, 60)
+    image(logo, 272, 60)
