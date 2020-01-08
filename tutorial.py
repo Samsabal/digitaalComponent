@@ -64,8 +64,8 @@ def tut1():
         text("""  Welkom bij BvB
   BvB is een tactisch en competitief bordspel. Dat 
   plaats vindt in Berlijn tijdens de koude oorlog. Het 
-  is aan jou om de intel van de tegenstander te stelen 
-  en zo de oorlog te winnen.""", 100, 70)
+  is aan jou de thuisbasis van de tegenstander binnen
+  te dringen en zo de oorlog te winnen.""", 100, 70)
         
     elif tutoPage == 2:
         stroke(0, 0, 0)
@@ -87,12 +87,12 @@ def tut1():
         textSize(21)
         fill(0)
         text("""  Er zijn 2 manieren om het spel te winnen:
-  1. Door aan de andere kant te komen. 
-  2. Door alle vijandige spionnen uit te schakelen.
+  1. in de andere thuisbasis te komen met 1 pion. 
+  2. alle vijandige spionnen uit te schakelen.
   
-  Je beweegt in BvB door middel van een dobbelsteen 
-  die van 1 tot 3 gaat. Je kan alleen horizontaal 
-  en verticaal bewegen.""", 100, 70)
+  Je verplaatsingen in BvB worden door een 
+  dobbelsteen van 1 tot 3 bepaald.
+  Je kan alleen horizontaal en verticaal bewegen.""", 100, 70)
     elif tutoPage == 3:
         stroke(0, 0, 0)
         strokeWeight(2)
@@ -113,12 +113,12 @@ def tut1():
         text("""  In BvB kan je ook met andere spelers vechten door 
   middel van het duel systeem.
   Een duel begint wanneer je met je spion direct 
-  tegen de tegenstanders spion aan staat. 
+  aangrenzend met de tegenstander's spion staat. 
   
-  Je gooit dan de normale dobbelsteen en wie het 
-  hoogste aantal gooit wint het gevecht. De 
-  tegenstanders spion is dan dood en moet in de 
-  graveyard worden geplaatst.""", 100, 70)
+  Je gooit dan de normale dobbelsteen (1-6) en wie 
+  het hoogste aantal gooit wint het gevecht. De 
+  tegenstanders spion is dan dood en moet in het 
+  graf worden geplaatst.""", 100, 70)
         
     elif tutoPage == 4:
         stroke(0, 0, 0)
@@ -135,14 +135,16 @@ def tut1():
          
         textVak()
         
-        textSize(21)
+        textSize(18)
         fill(0)
         text("""  In BvB kan je spion ook gewond raken. Hierdoor 
-  mag je met elke beurt 1 stap minder zetten.
+  moet je met elke beurt 1 stap minder zetten.
   Een gewonde spion kan je helen in het ziekenhuis
-  getoond op het bord hieronder.
-  Gewonde spionnen moeten ook de tunnels 
-  gebruiken.
+  getoond op het bord hieronder, dan mag je weer 
+  al je zetten gebruiken.
+  
+  Gewonde spionnen kunnen alleen de tunnels 
+  gebruiken en niet de Berlijnse muur.
   Wanneer een gewonde spion nog een keer gewond 
   raakt is deze dood. """, 100, 70)
         
@@ -161,16 +163,18 @@ def tut1():
         
         textVak()
         
-        textSize(21)
+        textSize(18)
         fill(0)
         text("""  Er zijn ook kaarten in BvB. 2 hiervan zijn de militair 
   en de val. De militair en de val kunnen geplaatst 
   worden op de kaart en kunnen niet bewegen. 
   De militair start een duel met spionnen en kan de 
   spionnen alleen gewond maken. 
+  
   De val gaat alleen af wanneer er op hetzelfde vakje 
   wordt gestaan en dient dus meer als een blokkade. 
-  De val dood spionnen wel.""", 100, 70)
+  De val dood spionnen wel en kan slechts 1 keer 
+  gebruikt worden.""", 100, 70)
         
     elif tutoPage == 6:
         stroke(0, 0, 0)
@@ -188,16 +192,17 @@ def tut1():
         
         textVak()
         
-        textSize(21)
+        textSize(19)
         fill(0)
         text("""  Er zijn ook speciale kaarten. Dit zijn kaarten die 
   sterker zijn dan gewone kaarten en deze kan je 
   alleen op het aangewezen vak halen.
   Je mag in totaal 7 kaarten in je hand hebben
-  waarvan 3 special en 4 standaard.
+  waarvan 3 speciaal en 4 standaard.
+  
   Elke beurt heb je de kans om een standaard kaart 
-  om te ruilen je kan deze beurt dan geen kaart 
-  meer spelen.""", 100, 70)
+  om te ruilen. je kan deze beurt dan geen andere 
+  kaart meer spelen.""", 100, 70)
         
     elif tutoPage == 7:
         stroke(0, 0, 0)
@@ -217,11 +222,11 @@ def tut1():
         textSize(21)
         fill(0)
         text("""  Er zijn 2 manieren om over de muur te komen: 
-  1. Over de muur heen klimmen dit doe je door de 
+  1. Over de muur heen klimmen, dit doe je door de 
      dobbelsteen te gooien. 
-     1 = spion raakt gewond, 
-     2 = spion blijft staan, 
-     3 = spion mag over de muur. 
+     1 = spion raakt gewond
+     2 = spion blijft staan 
+     3 = spion mag over de muur 
   2. Door de tunnel gaan. Als je de tunnel ingaat ga 
      je naar de andere kan en is je beurt voorbij.""", 100, 70)
         
@@ -240,9 +245,10 @@ def tut1():
         fill(0)
         text("""  Gefeliciteerd!
              
-  Je hebt de Tutorial afgemaakt en bent nu helemaal 
-  klaar om te spelen. Als er iets nog onduidelijk is 
-  raadpleeg dan de handleiding. 
+  Je hebt de Tutorial helemaal doorlopen en 
+  bent nu helemaal klaar om te spelen. Als je
+  iets nog niet helemaal snapt kun je altijd 
+  de handleiding nog raadplegen.
   
   Veel plezier!""", 100, 70)
         
