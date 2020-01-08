@@ -144,7 +144,7 @@ def mousePressed():
             currentScene = "gamemodes"
             
             
-    if currentScene == "gamemodes":
+    elif currentScene == "gamemodes":
         if 285 < mouseX < 455 and 160 < mouseY < 200:
             t.start = t.startTimer()
             currentScene = "rushhour"
