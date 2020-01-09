@@ -92,7 +92,7 @@ def homeButton():
 def menu():
     noFill()
     strokeWeight(3)
-    stroke(0)
+    stroke(0, 150)
     textSize(26)
     text("MENU", 20, 707)
     rect(19, 678, 75, 40)
@@ -105,7 +105,7 @@ def menu():
         
 def info():
     noFill()
-    stroke(0)
+    stroke(0, 150)
     strokeWeight(3)
     textSize(26)
     text("INFO", 663, 707)
