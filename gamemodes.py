@@ -37,10 +37,11 @@ def options():
 def button1():
     noFill()
     stroke(0,150)
-    rect(285,160,170,40)
-    rect(285,210,170,40)
-    rect(285, 490, 170, 40)
-    rect(285, 540, 170, 40)
+    strokeWeight(3)
+    rect(100,170,170,40)
+    rect(470,170,170,40)
+    rect(100, 520, 170, 40)
+    rect(470, 520, 170, 40)
     mouseHover()
 
 def mouseHover():

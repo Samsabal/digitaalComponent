@@ -2,7 +2,7 @@
 def draw():
     noFill()
     stroke(0, 150)
-    strokeWeight(5)
+    strokeWeight(3)
     rect(656, 700, 75, 40)
     
     textSize(26)

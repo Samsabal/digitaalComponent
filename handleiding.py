@@ -54,7 +54,7 @@ def draw():
     textSize(16)
     fill(0)
     noFill()
-    strokeWeight(5)
+    strokeWeight(3)
     stroke(0)
     if currentPage > 0:
         rect(150,10,450,650)
@@ -279,7 +279,7 @@ def navHoofdButton():
     #De button die leidt naar de Snelle Navigatie op de eerste pagina van de handleiding.
     noFill()
     stroke(0, 150)
-    strokeWeight(5)
+    strokeWeight(3)
     rect(19, 678, 75, 40)
     
     textSize(26)
@@ -302,7 +302,7 @@ def navButton():
     #De button die naar de Snelle Navigatie leidt.
     noFill()
     stroke(0, 150)
-    strokeWeight(5)
+    strokeWeight(3)
     rect(19, 618, 75, 40)
     
     textSize(26)
@@ -325,7 +325,7 @@ def backButton():
     #De back button in de Snelle Navigatie.
     noFill()
     stroke(0, 150)
-    strokeWeight(5)
+    strokeWeight(3)
     rect(656, 678, 75, 40)
     
     textSize(26)
