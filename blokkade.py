@@ -1,3 +1,4 @@
+
 def setup():
     #laad de uitleg van rushhour en de template achtergrond in en resized deze naar het juiste formaat.
     global img, template
@@ -16,3 +17,4 @@ def draw():
     stroke(0)
     strokeWeight(3)
     rect(74,29,602,602)
+        
