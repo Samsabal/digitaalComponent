@@ -4,6 +4,7 @@ def setup():
     global logo
     logo = loadImage("Images/logo.png")
     logo.resize(65,65)
+    frameRate(60)
     
 def draw():
     nextButton()
@@ -14,6 +15,7 @@ def draw():
 def nextButton():
     noFill()
     stroke(0, 150)
+    strokeWeight(3)
     rect(656, 678, 75, 40)
     
     textSize(26)
@@ -35,6 +37,7 @@ def nextButton():
 def previousButton():
     noFill()
     stroke(0, 150)
+    strokeWeight(3)
     rect(19, 678, 75, 40)
     
     textSize(26)
@@ -66,6 +69,8 @@ def homeButton():
     textSize(20)
     fill(0)
     text("Hoofdscherm:", 200, 705)
+    stroke(0)
+    fill(0)
     
 # making the button light up when the mouse hovers over it
     
@@ -78,7 +83,43 @@ def homeButton():
         textSize(20)
         fill(255)
         text("Hoofdscherm:", 200, 705)
+        stroke(0)
+        fill(0)
     else: 
         return False
+    
+    
+def menu():
+    noFill()
+    strokeWeight(3)
+    stroke(0, 150)
+    textSize(26)
+    text("MENU", 20, 707)
+    rect(19, 678, 75, 40)
+    
+    if 19 < mouseX < 94 and 678 < mouseY < 718:
+        stroke(255,220)
+        rect(19, 678, 75, 40)
+        stroke(0)
+        fill(0)
+        
+def info():
+    noFill()
+    stroke(0, 150)
+    strokeWeight(3)
+    textSize(26)
+    text("INFO", 663, 707)
+    rect(656, 678, 75, 40)
+    
+    if 656 < mouseX < 731 and 678 < mouseY < 718:
+        stroke(255,220)
+        rect(656, 678, 75, 40)
+        stroke(0)
+        fill(0)
 
+
+def backgroundTint():
+    strokeWeight(0)
+    fill(0,0,0,128)
+    rect(0, 0, 750, 750)
     

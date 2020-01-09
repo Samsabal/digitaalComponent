@@ -3,7 +3,8 @@ def setup():
     global logo
     logo = loadImage("Images/logo.png")
     logo.resize(200,200)
+    frameRate(60)
     
 def draw():
     global logo
-    image(logo, 280, 60)
+    image(logo, 272, 60)

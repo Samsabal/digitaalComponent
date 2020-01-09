@@ -44,19 +44,21 @@ def setup():
     page17.resize(450,650)
     page18.resize(450,650)
     page19.resize(450,650)
+    frameRate(60)
         
 def draw():
     #Dit is de page indicator in de handleiding.
     image(template, 0, 0)
+    strokeWeight(3)
+    handleiding1()
     textSize(16)
     fill(0)
-    text("Page " + str(currentPage), 10, 30)
-    handleiding1()
     noFill()
-    strokeWeight(5)
+    strokeWeight(3)
     stroke(0)
     if currentPage > 0:
         rect(150,10,450,650)
+        text(str(currentPage), 575, 30)
     
 def handleiding1():
     #Hiermee wordt de afbeelding in handleiding veranderd.
@@ -274,10 +276,10 @@ def pageDown():
     currentPage = currentPage - 1
 
 def navHoofdButton():
-    #De button die naar de Snelle Navigatie.
+    #De button die leidt naar de Snelle Navigatie op de eerste pagina van de handleiding.
     noFill()
     stroke(0, 150)
-    strokeWeight(5)
+    strokeWeight(3)
     rect(19, 678, 75, 40)
     
     textSize(26)
@@ -297,10 +299,10 @@ def navHoofdButton():
         return False
 
 def navButton():
-    #De button die naar de Snelle Navigatie.
+    #De button die naar de Snelle Navigatie leidt.
     noFill()
     stroke(0, 150)
-    strokeWeight(5)
+    strokeWeight(3)
     rect(19, 618, 75, 40)
     
     textSize(26)
@@ -323,7 +325,7 @@ def backButton():
     #De back button in de Snelle Navigatie.
     noFill()
     stroke(0, 150)
-    strokeWeight(5)
+    strokeWeight(3)
     rect(656, 678, 75, 40)
     
     textSize(26)

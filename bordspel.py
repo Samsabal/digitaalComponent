@@ -14,20 +14,29 @@ for grid_y in range(10): # Muur
 w = 60 # Breedte van de grid cells
 
 def setup():
-    global template_image, ziekenhuis_masked, muur_masked, speciaal_masked, tunnel_masked
+    global template_image, ziekenhuis_masked, muur_masked, speciaal_masked, tunnel_masked, leeg_masked, westBerlijn_masked, oostBerlijn_masked, muur
+    muur = loadImage("Images/muur.png")
+    muur.resize(600,600)
+    
+    leeg = loadImage("Images/leeg.jpg")
+    leeg.resize(w,w)
+    
+    westBerlijn = loadImage("Images/west-berlijn.jpg")
+    westBerlijn.resize(w,w)
+    
+    oostBerlijn = loadImage("Images/oost-berlijn.jpg")
+    oostBerlijn.resize(w,w)
+    
     template_image = loadImage("Images/template.jpg")
     template_image.resize(750,750)
     
-    ziekenhuis = loadImage("images/ziekenhuis.jpg")
+    ziekenhuis = loadImage("Images/ziekenhuis.jpg") 
     ziekenhuis.resize(w,w)
     
-    muur = loadImage("images/muur.jpg")
-    muur.resize(w,w)
-    
-    speciaal = loadImage("images/speciaal.jpg")
+    speciaal = loadImage("Images/speciaal.jpg")
     speciaal.resize(w,w)
     
-    tunnel = loadImage("images/tunnel.jpg")
+    tunnel = loadImage("Images/tunnel.jpg")
     tunnel.resize(w,w)
     
     # Maak mask
@@ -40,14 +49,24 @@ def setup():
     ziekenhuis_masked = ziekenhuis.copy()
     ziekenhuis.mask(mask_image)
     
-    muur_masked = muur.copy()
-    muur.mask(mask_image)
-    
     speciaal_masked = speciaal.copy()
     speciaal.mask(mask_image)
     
     tunnel_masked = tunnel.copy()
     tunnel.mask(mask_image)
+    
+    leeg_masked = leeg.copy()
+    leeg.mask(mask_image)
+    
+    westBerlijn_masked = westBerlijn.copy()
+    westBerlijn.mask(mask_image)
+    
+    oostBerlijn_masked = oostBerlijn.copy()
+    oostBerlijn.mask(mask_image)
+    
+    leeg_masked = leeg.copy()
+    leeg.mask(mask_image)
+    frameRate(60)
     
 def draw():
     #de afbeelding van het spel in het midden van het scherm en de 
@@ -59,29 +78,32 @@ def draw():
     noFill()
     stroke(0)
     strokeWeight(3)
-    rect(1, 673, 747, 75)
+    tint(255, 255)
     
     x,y = 75,30 # Waar de grid begint op de X en Y as
+
+    
+    fill(0)
+    rect(x, y, 599, 599)
     
     for row in grid:
         for col in row:
             if col == -1: # West-Berlijn
-                fill(0, 0, 255)
-                rect(x,y,w,w)
+                image(westBerlijn_masked, x, y)
             elif col == -2: # Oost-Berlijn
-                fill(255, 0, 0)
-                rect(x,y,w,w)
+                image(oostBerlijn_masked, x, y)
             elif col == -3: # Ziekenhuis
                 image(ziekenhuis_masked, x, y)
-            elif col == -4: # Muur
-                image(muur_masked, x, y)
             elif col == -5: # Speciaal
                 image(speciaal_masked, x, y)
             elif col == -6: # Tunnel
                 image(tunnel_masked, x, y)
             else: # Leeg
-                fill(255)
-                rect(x,y,w,w)
+                image(leeg_masked, x, y)    
             x = x + w
         y = y + w
         x = 75
+    
+    image(muur, 75, 30)
+    
+        
