@@ -92,14 +92,28 @@ def homeButton():
 def menu():
     noFill()
     strokeWeight(3)
-    stroke(0)
+    stroke(0, 150)
     textSize(26)
-    text("MENU", 20, 710)
+    text("MENU", 20, 707)
     rect(19, 678, 75, 40)
     
     if 19 < mouseX < 94 and 678 < mouseY < 718:
         stroke(255,220)
         rect(19, 678, 75, 40)
+        stroke(0)
+        fill(0)
+        
+def info():
+    noFill()
+    stroke(0, 150)
+    strokeWeight(3)
+    textSize(26)
+    text("INFO", 663, 707)
+    rect(656, 678, 75, 40)
+    
+    if 656 < mouseX < 731 and 678 < mouseY < 718:
+        stroke(255,220)
+        rect(656, 678, 75, 40)
         stroke(0)
         fill(0)
 

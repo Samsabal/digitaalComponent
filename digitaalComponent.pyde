@@ -1,7 +1,7 @@
 
-import template, logo, buttons, bordspel, titleButton, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, tutorial, timer as t, specialSacrifice, blokkade, hardcore
+import template, logo, buttons, bordspel, titleButton, exitButton, nextPrevious, bordspelInfo, gamemodes, handleiding, rushhour, tutorial, timer as t, specialSacrifice, blokkade, hardcore, blokkadeInfo, hardcoreInfo
 from nextPrevious import homeButton
-from nextPrevious import menu
+from nextPrevious import menu, info
 
 def setup():
     #wordt 1 keer uitgevoerd. roept alle modules die een setup hebben en voert deze uit aan het begin van het programma.
@@ -56,13 +56,27 @@ def draw():
         blokkade.draw()
         homeButton()
         menu()
+        info()
     elif currentScene == "hardcore":
         hardcore.draw()
         homeButton()
         menu()
+        info()
     elif currentScene == "tutorial":
         template.draw()
         tutorial.draw()
+    elif currentScene == "blokkadeInfo":
+        blokkade.draw()
+        nextPrevious.backgroundTint()
+        blokkadeInfo.draw()
+        homeButton()
+        menu()
+    elif currentScene == "hardcoreInfo":
+        hardcore.draw()
+        nextPrevious.backgroundTint()
+        hardcoreInfo.draw()
+        homeButton()
+        menu()
     else:
         return False        
     
@@ -137,14 +151,32 @@ def mousePressed():
             
     elif currentScene == "gamemodes":
         if 285 < mouseX < 455 and 160 < mouseY < 200:
-            print(285 < mouseX < 455 and 280 < mouseY < 320)
-
-    elif currentScene == "rushhour" or currentScene == "specialSacrifice" or currentScene == "blokkade" or currentScene == "hardcore":
-        if 19 < mouseX < 94 and 678 < mouseY < 718:
-            currentScene = "gamemodes"
+            t.start = t.startTimer()
+            currentScene = "rushhour"
+        elif 285 < mouseX < 455 and 210 < mouseY < 250:
+            currentScene = "specialSacrifice"
+        elif 285 < mouseX < 455 and 490 < mouseY < 530:
+            currentScene = "blokkade" 
+        elif 285 < mouseX < 455 and 540 < mouseY < 580:
+            currentScene = "hardcore"
             
+    elif currentScene == "blokkade":
+        if 656 < mouseX < 731 and 678 < mouseY < 718:
+            currentScene = "blokkadeInfo"
             
-    if currentScene == "gamemodes":
+    elif currentScene == "hardcore":
+        if 656 < mouseX < 731 and 678 < mouseY < 718:
+            currentScene = "hardcoreInfo"
+    
+    elif currentScene == "blokkadeInfo":
+        if 175 < mouseX < 345 and 300 < mouseY < 340:
+            currentScene = "blokkade"
+            
+    elif currentScene == "hardcoreInfo":
+        if 175 < mouseX < 345 and 300 < mouseY < 340:
+            currentScene = "hardcore"
+                        
+    elif currentScene == "gamemodes":
         if 285 < mouseX < 455 and 160 < mouseY < 200:
             t.start = t.startTimer()
             currentScene = "rushhour"
@@ -222,7 +254,11 @@ def mousePressed():
             currentScene = "home"
             handleiding.pageIs(1) #Zorgt ervoor dat je niet elke keer helemaal terug hoeft te gaan in de handleiding.
             tutorial.pageIs(1)
-                
+            
+    if currentScene == "rushhour" or currentScene == "specialSacrifice" or currentScene == "blokkade" or currentScene == "hardcore":
+        if 19 < mouseX < 94 and 678 < mouseY < 718:
+            currentScene = "gamemodes"
+
 def keyPressed():
     if currentScene == "tutorial":
         if tutorial.tutoPage != 8:
